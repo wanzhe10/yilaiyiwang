@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+<link rel="stylesheet/less" href="/yilaiyiwang/css/nav.less">
+<link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+<link rel="stylesheet/less" href="/yilaiyiwang/writeCase/css/createCase.1.less">
+<script src="/yilaiyiwang/js/jquery.js"></script>
+<script src="/yilaiyiwang/layui/layui.all.js"></script>
+<script src="/yilaiyiwang/js/less.js"></script>
+<script src="/yilaiyiwang/js/root.js"></script>
+<script src="/yilaiyiwang/js/imgFileupload.js"></script>
+<script src="/yilaiyiwang/writeCase/js/createCase.1.js"></script>
+</head>
+<body>
+<!-- 查看大图部分 -->
+<div class="bigImgContainer clearfix">
+    <div class="bigImgBox">
+        <div class="bigImg"></div>
+        <div class="pdf" style=" width: 565px;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    left: 0;">
+            <embed class="pdf" src="/demo/compressed.tracemonkey-pldi-09.pdf" style="width: 565px; height: 600px; ">
+        </div>
+    </div>
+    <div class="bigImgRightBox">
+        <div class="fileNameBox">
+            <h2 class="fileTitle">
+                <span></span>文件名</h2>
+            <p class="fileName">图片名字</p>
+        </div>
+        <div class="fileDescBox">
+            <h2 class="descTitle">添加备注</h2>
+            <textarea class="descText" name="name" rows="" cols=""></textarea>
+        </div>
+        <div class="switchBox clearfix">
+            <a class="prev" href="javascript:;">上一个文件</a>
+            <a class="next" href="javascript:;">下一个文件</a>
+        </div>
+    </div>
+    <a class="closeBtn" href="javascript:;">关闭</a>
+</div>
+</body>
+</html>

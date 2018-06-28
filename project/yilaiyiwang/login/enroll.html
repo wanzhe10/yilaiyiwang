@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+</head>
+<link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+<link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+<link rel="stylesheet/less" type="text/css" href="/yilaiyiwang/login/css/enroll.less" />
+<script src="/yilaiyiwang/js/jquery.js"></script>
+<script src="/yilaiyiwang/js/root.js"></script>
+<script src="/yilaiyiwang/layui/layui.all.js"></script>
+<script src="/yilaiyiwang/js/less.js"></script>
+<script src="/yilaiyiwang/login/js/enroll.js"></script>
+
+<!--[if lt IE9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<body>
+    <header class="clearfix">
+        <h1>
+            <a href="javascript:;">
+                <img src="/yilaiyiwang/images/ylyw_logo.png" alt="">
+            </a>
+        </h1>
+
+        <ul class="tabContent clearfix">
+            <li style="border: none;">
+                <a href="/yilaiyiwang/login/login.html" style="font-size: 16px;color:#666666;font-weight:bold;">登录</a>
+            </li>
+            <li>
+                <a href="javascrip:;" class="guideAct">注册</a>
+            </li>
+        </ul>
+
+    </header>
+    <main>
+
+        <div class="enroll_account">
+            <div class="xian"></div>
+            <div class="xian_top">账号信息</div>
+            <div class="first_chunk">
+                <p style="padding-top: 0">登录账号</p>
+                <input type="text" value="" class="userName" placeholder="请输入手机号">
+                <p>设置密码</p>
+                <input type="password" value="" class="passWord" placeholder="请输入密码">
+                <p>再次输入密码</p>
+                <input type="password" value="" class="passwords" placeholder="请再次输入密码">
+            </div>
+            <div class="first_hint">
+                <p class="tip1" style="width: 200px;height: 30px;color: #e43d2a;"></p>
+<p class="tip2" style="width: 200px;height: 30px;color: #e43d2a;">*8-16个字符，必须包含英文(不分大小写)、数字、下划线中至少两种</p>
+<p class="tip3" style="width: 200px;height: 30px;color: #e43d2a;"></p>
+            </div>
+        </div>
+        <div class="enroll_homepage">
+            <div class="xian"></div>
+            <div class="xian_top">个人主页信息</div>
+            <div class="first_chunk">
+                <p style="padding-top: 0">姓名</p>
+                <input type="text" value="" placeholder="请输入姓名" class="name">
+                <!-- 下拉框 改 -->
+                <p>医院</p>
+                <div class="layui-input-inline">
+                    <select name="quiz1" class="quiz quiz1">
+                        <option value="">请选择医院</option>
+                    </select>
+                </div>
+                <p>专家类型</p>
+                <div class="layui-input-inline">
+                    <select name="quiz3" class="quiz quiz4">
+                        <option value="">请选择专家类型</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="first_chunk" style="left:470px">
+                <p style="padding-top: 0">电话</p>
+                <input type="text" value="" placeholder="请输入电话" class="phone">
+                <!-- 下拉框 改 -->
+                <p>科室</p>
+                <div class="layui-input-inline">
+                    <select name="quiz3" class="quiz quiz3">
+                        <option value="">请选择科室</option>
+
+                    </select>
+                </div>
+                <p>图文会诊</p>
+
+                <input class="money" type="text" value="" readonly="readonly">
+
+
+            </div>
+            <div class="first_chunk" style="left:870px">
+
+                <!-- 下拉框 改 -->
+                <p style="padding-top: 0">权限类型</p>
+                <div class="layui-input-inline">
+                    <select name="quiz2" class="quiz quiz2">
+                        <option value="">请选择权限类型</option>
+                    </select>
+                </div>
+
+<p style="padding-bottom: 13px;">职称</p>
+                <div class="layui-input-inline">
+                    <select name="quiz3" class="quiz quiz5">
+                        <option value="">请选择职称</option>
+
+                    </select>
+                </div>
+                <!-- 下拉框 改 -->
+                <p>视频会诊</p>
+
+                <input class="fees moneyVideo" type="text" value="" readonly="readonly">
+            </div>
+
+        </div>
+        <div class="enroll_three clearfix">
+
+            <p>
+                <span>上传医师执业资格证</span>
+                <span class="events">上传后不可自行修改，限jpg/png/pdf格式</span>
+                <span class="odds">上传签名</span>
+                <span class="events">上传后不可自行修改，限jpg/png/pdf格式</span>
+            </p>
+
+            <span id="olf" class="covers">打开本地文件</span>
+            <input id="upload" type="file" class="enroll_three_input_left">
+<!-- <div class="upload_btn" style="display: inline-block">打开</div> -->
+
+            <span id="uhs" class="covers covers_t">打开本地文件</span>
+            <input id="uploadTwo" type="file" class="enroll_three_input_right">
+<!-- <div type="button"  class="uploadTwo_btn" style="display: inline-block">打开</div> -->
+            <p>
+                <span>擅长</span>
+                <span class="events">可输入擅长的疾病、擅长的治疗技术...</span>
+            </p>
+            <textarea id="textAdaotion" class="text-adaption" rows="1"></textarea>
+            <p>
+                <span>病历要求</span>
+                <span class="events">从下方提供的列表中选择</span>
+            </p>
+
+            <!-- <div class="catalogue clearfix">
+                <p>一级目录</p>
+                <div class="checkAll ">全选</div>
+                <div class="checkSingle">二级目录</div>
+
+            </div> -->
+
+
+        </div>
+
+
+
+        <div class="zcWin">
+            <img src="/yilaiyiwang/login/images/login.png" alt="注册成功">
+            <h3>注册成功！</h3>
+            <p>待医务人员审核过后，&nbsp;&nbsp;即可开始使用</p>
+
+        </div>
+        <input type="button" value="注册" class="enroll_button">
+    </main>
+
+    <footer>
+        <span>Copyright © 2018 医来医往(北京)科技有限公司</span>
+    </footer>
+</body>
+
+</html>

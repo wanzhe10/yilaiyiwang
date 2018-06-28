@@ -1,0 +1,823 @@
+body {
+    background: #efefef;
+}
+
+.main {
+    margin: 100px auto 0;
+    width: 1200px;
+    background: #ffffff;
+
+    .navContent {
+        border-bottom: 1px solid #dbdbdb;
+        box-sizing: border-box;
+        padding: 28px 30px 0;
+
+        > a {
+            float: left;
+            display: block;
+            padding: 0 20px;
+            border-bottom: 8px solid transparent;
+            font-size: 16px;
+            color: #101010;
+            line-height: 38px;
+        }
+
+        .active {
+            color: #1937bc;
+            border-bottom: 8px solid #1937bc;
+        }
+    }
+
+    .mainContent {
+        overflow: hidden;
+
+        > div {
+            display: none;
+            width: 100%;
+            box-sizing: border-box;
+
+            &:first-child {
+                display: block;
+            }
+        }
+        // 医院信息
+        .hospitalInfo {
+            padding: 10px 48px 0;
+
+            div {
+                > h3 {
+                    margin-top: 40px;
+                    font-size: 18px;
+                    color: #101010;
+                    font-weight: 600;
+
+                    > span {
+                        margin: 0 0 0 20px;
+                        font-size: 12px;
+                    }
+
+                    .remind {
+                        display: none;
+                        color: #e85b4a;
+                    }
+                }
+
+                > input {
+                    box-sizing: border-box;
+                    margin: 20px 0 0;
+                    width: 100%;
+                    height: 36px;
+                    line-height: 36px;
+                    border: 1px solid #bdbdbd;
+                    padding: 0 20px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    color: #101010;
+                }
+
+                .item {
+                    margin: 12px 0 0;
+                    width: 48%;
+                    margin-right: 1%;
+                    float: left;
+
+                    > p {
+                        font-size: 14px;
+                        color: #101010;
+                        line-height: 32px;
+                    }
+
+                    > input {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .submitBtn {
+                display: block;
+                margin: 240px auto 140px;
+                box-sizing: border-box;
+                width: 200px;
+                height: 40px;
+                color: #999;
+                background: #dbdbdb;
+                border-radius: 10px;
+                font-size: 14px;
+                text-align: center;
+                line-height: 40px;
+            }
+
+            .active {
+                background: #1937bc;
+                color: #ffffff;
+            }
+        }
+        // 科室列表
+        .sectionContainer {
+            position: relative;
+            .sectionList {
+                cursor: pointer;
+                box-sizing: border-box;
+                background: #fff;
+                padding: 0 30px;
+                // 循环块
+                .sectionBox {
+                    .sectionTitle {
+                        margin: 15px 0 0;
+                        line-height: 50px;
+
+                        > h3 {
+                            float: left;
+                        }
+
+                        .problemContent {
+                            margin: 0 20px 0 10px;
+                            float: left;
+                            position: relative;
+                            cursor: pointer;
+
+                            .problemBox {
+                                display: none;
+                                position: absolute;
+                                top: 50px;
+                                left: -14px;
+                                box-sizing: border-box;
+                                width: 338px;
+                                height: 136px;
+                                padding: 20px;
+                                background: #f6c567;
+                                border: 1px solid #eba92a;
+                                border-radius: 10px;
+                                z-index: 999;
+
+                                &:before {
+                                    content: ' ';
+                                    position: absolute;
+                                    top: -10px;
+                                    left: 20px;
+                                    width: 12px;
+                                    height: 10px;
+                                    background: url("../images/personal_top_yellow.png") no-repeat;
+                                }
+
+                                > p {
+                                    font-size: 14px;
+                                    color: #101010;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+
+                        > p {
+                            float: left;
+                            font-size: 12px;
+                            color: #101010;
+                        }
+
+                        .lineBox {
+                            margin: 25px 0 0;
+                            float: right;
+                            width: 560px;
+                            height: 2px;
+                            background: #efefef;
+                        }
+                        
+
+                        .shrinkBtn {
+                            float: right;
+                            display: block;
+                            padding: 0 20px;
+                            font-size: 16px;
+                            color: #999999;
+                            background: url("../images/icon_top.png") no-repeat right center;
+                        }
+
+                        .active {
+                            background: url("../images/down.png") no-repeat right center;
+                        }
+                    }
+
+                    .sectionContent {
+                        display: none;
+                        border: 1px solid #efefef;
+                        border-radius: 10px;
+
+                        .selectedContent {
+                            box-sizing: border-box;
+                            padding: 20px;
+
+                            > h4 {
+                                font-size: 12px;
+                                color: #101010;
+                                margin-bottom: 20px;
+                            }
+
+                            .selectedBox {
+                                > a {
+                                    display: block;
+                                    float: left;
+                                    border: 1px solid #516dcf;
+                                    border-radius: 10px;
+                                    line-height: 30px;
+                                    font-size: 14px;
+                                    color: #fff;
+                                    padding: 0 30px;
+                                    background: #516dcf;
+                                    text-align: center;
+                                    margin: 0 10px 10px 0;
+                                }
+                            }
+                        }
+
+                        .unselectedContent {
+                            box-sizing: border-box;
+                            border-top: 1px solid #efefef;
+                            padding: 20px;
+
+                            > h4 {
+                                font-size: 12px;
+                                color: #101010;
+                                margin-bottom: 20px;
+                            }
+
+                            .unselectedBox {
+                                > a {
+                                    display: block;
+                                    float: left;
+                                    border: 1px solid #516dcf;
+                                    border-radius: 10px;
+                                    line-height: 30px;
+                                    font-size: 14px;
+                                    color: #516dcf;
+                                    padding: 0 30px;
+                                    text-align: center;
+                                    margin: 0 10px 10px 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sectionSubmit {
+                display: block;
+                margin: 90px auto 60px;
+                width: 200px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: #dbdbdb;
+                border-radius: 10px;
+                color: #999;
+            }
+
+            .active {
+                background: #1937bc;
+                color: #fff;
+            }
+        }
+        // 医生列表
+        .doctorContainer {
+            .hospitalUl,
+            .oneLevelUl {
+                cursor: pointer;
+                -moz-user-select: none; /*火狐*/
+                -webkit-user-select: none; /*webkit浏览器*/
+                -ms-user-select: none; /*IE10*/
+                -khtml-user-select: none; /*早期浏览器*/
+                user-select: none;
+                float: left;
+                width: 186px;
+                .hospitalItem,
+                .oneLevelItem {
+                    border-left: 6px solid #bdbdbd;
+
+                    .hospitalName,
+                    .oneLevelName {
+                        position: relative;
+                        box-sizing: border-box;
+                        line-height: 50px;
+                        background: #dbdbdb;
+                        padding: 0 20px 0 10px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-weight: 600;
+                        
+                    }
+                    .oneLevelName.redFlag {
+                        padding: 0 20px 0 20px;
+                        &:before {
+                            position: absolute;
+                            top: 22px;
+                            left: 7px;
+                            content: ' ';
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 50%;
+                            background: #e43d2a;
+                        }
+                    }
+                    // 一级科室列表
+                    .sectionUl,
+                    .twoLevelUl {
+                        overflow-x: hidden;
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                        display: none;
+                        box-sizing: border-box;
+                        padding: 12px 0;
+                        background: #fff;
+                        .sectionItem.noFlag,
+                        .twoLevelItem.noFlag {
+                            &:after {
+                                content: ' ';
+                                position: absolute;
+                                top: 9px;
+                                left: 12px;
+                                width: 0;
+                                height: 0;
+                                border: none;
+                            }
+                        }
+                        .sectionItem,
+                        .twoLevelItem {
+                            position: relative;
+                            box-sizing: border-box;
+
+                            > p {
+                                font-size: 14px;
+                                color: #101010;
+                                line-height: 32px;
+                                font-weight: 600;
+                                padding-left: 30px;
+                                padding-right: 20px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .redFlag {
+                                padding-left: 40px;
+                                &:before {
+                                    position: absolute;
+                                    content: ' ';
+                                    top: 13px;
+                                    left: 27px;
+                                    width: 6px;
+                                    height: 6px;
+                                    border-radius: 50%;
+                                    background: #e43d2a;
+                                } 
+                            }
+                            // 一级科室 收起时
+                            &:after {
+                                content: ' ';
+                                position: absolute;
+                                top: 9px;
+                                left: 12px;
+                                width: 0;
+                                height: 0;
+                                border: 6px solid transparent;
+                                border-left: 6px solid #516dcf;
+                            }
+                            
+                            // 二级科室
+                            .deptUl,
+                            .threeLevelUl {
+                                display: none;
+                                .deptItem,
+                                .threeLevelItem {
+                                    box-sizing: border-box;
+                                    margin: 3px 13px 0 0;
+                                    line-height: 30px;
+                                    padding: 0 0 0 30px;
+                                    font-size: 14px;
+                                    color: #666;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    > span {
+                                        float: left;
+                                        display: block;
+                                    }
+                                    > img {
+                                        float: left;
+                                    }
+                                    .unauthentication {
+                                        margin: 4px 0 0 8px;
+                                    }
+                                    .uncomplete {
+                                        margin: 8px 0 0 8px;
+                                    }
+                                }
+                                .deptItem.active,
+                                .threeLevelItem.active {
+                                    background: #516dcf;
+                                    border-radius: 0 0 10px 0;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        // 一级科室 展开时
+                        .active {
+                            &:after {
+                                content: ' ';
+                                position: absolute;
+                                top: 12px;
+                                left: 10px;
+                                width: 0;
+                                height: 0;
+                                border: 6px solid transparent;
+                                border-top: 6px solid #516dcf;
+                            }
+                        }
+                    }
+                }
+                // 医院列表焦点
+                .hospitalItem.active,
+                .oneLevelItem.active {
+                    border-left: 6px solid #3249c2;
+
+                    .hospitalName,
+                    .oneLevelName {
+                        background: #516dcf;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .doctorContent {
+                position: relative;
+                float: left;
+                box-sizing: border-box;
+                margin: 0 0 0 54px;
+                width: 960px;
+                padding: 40px 0 0;
+
+                .textItem {
+                    position: relative;
+                    box-sizing: border-box;
+                    float: left;
+                    width: 50%;
+                    margin: 0 0 30px;
+
+                    > h3 {
+                        font-size: 14px;
+                        color: #101010;
+
+                        > span {
+                            font-size: 14px;
+                            color: #475bc8;
+                            margin-left: 22px;
+                        }
+                    }
+
+                    > input {
+                        margin: 20px 0 0;
+                        width: 260px;
+                        height: 40px;
+                        padding: 0 20px;
+                        line-height: 40px;
+                        background: #f4f4f4;
+                        color: #101010;
+                        font-size: 14px;
+                        border-radius: 10px;
+                        border: 1px solid #dbdbdb;
+                    }
+                    // 输入框不可修改样式
+                    .readonlyText {
+                        background: #bdbdbd;
+                        border: 1px solid #999999;
+                        cursor: default;
+                    }
+
+                    > select {
+                        margin: 20px 0 0;
+                        width: 260px;
+                        height: 40px;
+                        border-radius: 10px;
+                        background: #f4f4f4;
+                        border: 1px solid #dbdbdb;
+                    }
+
+                    > span {
+                        float: left;
+                        display: block;
+                        margin: 20px 0 0;
+                        width: 260px;
+                        height: 40px;
+                        padding: 0 20px;
+                        line-height: 40px;
+                        background: #f4f4f4;
+                        color: #101010;
+                        font-size: 14px;
+                        border-radius: 10px;
+                        border: 1px solid #dbdbdb;
+                    }
+
+                    .file {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 260px;
+                        height: 40px;
+                        opacity: 0;
+                        filter:alpha(opacity=0);
+                    }
+
+                    > a {
+                        float: left;
+                        display: block;
+                        margin: 20px 0 0 20px;
+                        width: 90px;
+                        height: 40px;
+                        background: #1937bc;
+                        text-align: center;
+                        line-height: 40px;
+                        border-radius: 10px;
+                        font-size: 14px;
+                        color: #ffffff;
+                    }
+                }
+
+                .textareaItem {
+                        margin-bottom: 40px;
+                    > h3 {
+                        font-size: 14px;
+                        color: #101010;
+
+                        > span {
+                            font-size: 14px;
+                            color: #475bc8;
+                            margin-left: 22px;
+                        }
+                    }
+
+                    #beGoodAt {
+                     width: 100%;
+                    height: 40px;
+                    margin-top:20px;
+                    overflow: hidden;
+                    // padding: 5px 10px;
+                    padding-left: 20px;
+                    resize: none;
+                    line-height: 40px;
+                    font-size: 14px;
+                    background-color: #f4f4f4;
+                    border: 1px solid #dbdbdb;
+                    outline: 0 none;
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                    }
+                }
+
+                .requireContent {
+                    margin: 20px 0 0;
+
+                    > h3 {
+                        font-size: 14px;
+                        color: #101010;
+                        margin-bottom: 20px;
+                        > span {
+                            font-size: 14px;
+                            color: #475bc8;
+                            margin-left: 22px;
+                        }
+                    }
+
+                    .catalogue {
+                        width: 960px;
+                        border: 1px solid #efefef;
+                        border-radius: 10px;
+                        padding: 20px;
+                        margin-bottom: 10px;
+                        > p {
+                            margin-bottom: 10px;
+                        }
+                        div {
+                            float: left;
+                            margin: 10px 10px 0 0;
+                            padding: 0 30px;
+                            border: 1px solid #516dcf;
+                            border-radius: 10px;
+                            color: #516dcf;
+                            cursor: pointer;
+                            line-height: 28px;
+                            -moz-user-select: none;
+                            /*火狐*/
+                            -webkit-user-select: none;
+                            /*webkit浏览器*/
+                            -ms-user-select: none;
+                            /*IE10*/
+                            -khtml-user-select: none;
+                            /*早期浏览器*/
+                            user-select: none;
+                        }
+                        .CheckBg {
+                            background: #516dcf;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .fexidContent {
+                display: none;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background: #586acb;
+                height: 70px;
+                width: 100%;
+                padding: 0 30px;
+                z-index: 10;
+                > div {
+                    display: none;
+                    float: right;
+                    > a {
+                        float: left;
+                        display: block;
+                        width: 200px;
+                        height: 40px;
+                        line-height: 40px;
+                        background: #fff;
+                        text-align: center;
+                        border-radius: 10px;
+                        margin:15px 0 0 10px;
+                    }
+                }
+            }
+        }
+        // 职称列表
+        .doctorTitleList {
+            box-sizing: border-box;
+            background: #fff;
+            padding: 0 0 100px;
+
+            > p {
+                text-align: center;
+                font-size: 14px;
+                color: #101010;
+                line-height: 50px;
+
+                &:nth-child(odd) {
+                    background: #eef1fb;
+                }
+            }
+        }
+        // 专家类型
+        .expertTypeBox {
+            background: #fff;
+
+            table {
+                box-sizing: border-box;
+                width: 1200px;
+
+                thead {
+                    tr {
+                        border-bottom: 1px solid #dbdbdb;
+                        background: #516dcf;
+                        line-height: 50px;
+
+                        th {
+                            padding-left: 130px;
+                            color: #fff;
+                            text-align: left;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        line-height: 50px;
+                        border-bottom: 1px solid #dbdbdb;
+
+                        &:nth-child(odd) {
+                            background: #eef1fb;
+                        }
+
+                        td {
+                            padding-left: 130px;
+
+                            > input {
+                                line-height: 30px;
+                                border: none;
+                                width: 140px;
+                                background: none;
+                                border-radius: 10px;
+                                padding: 0 10px;
+                            }
+
+                            .revisability {
+                                border: 1px solid #dbdbdb;
+                                background: #fff;
+                            }
+
+                            > a {
+                                display: block;
+                                color: #1937bc;
+                                font-size: 14px;
+                                float: left;
+                                margin-right: 20px;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > a {
+                margin: 120px auto 60px;
+                display: block;
+                width: 200px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: #1937bc;
+                border-radius: 10px;
+                color: #fff;
+            }
+        }
+    }
+}
+// 成功 失败 提示框
+
+.promptBox {
+    display: none;
+    box-sizing: border-box;
+    width: 340px;
+    height: 200px;
+    background: #fff;
+    line-height: 200px;
+    border-radius: 10px;
+    // padding: 60px 0 0;
+    text-align: center;
+
+    > span {
+        margin-left: 20px;
+        font-size: 22px;
+        color: #101010;
+    }
+}
+// 带操作按钮的提示框
+
+.operateBox {
+    display: none;
+    box-sizing: border-box;
+    width: 500px;
+    height: 200px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 60px 0 0;
+
+    > p {
+        text-align: center;
+        font-size: 18px;
+        color: #101010;
+    }
+
+    .btnBox {
+        margin: 50px 0 0;
+        text-align: center;
+
+        > a {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #3249c2;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .yesBtn,.rightBtn {
+            background: #1937bc;
+        }
+
+        .noBtn,.leftBtn {
+            background: #516dcf;
+        }
+    }
+}
+.prompt{
+    font-weight: 400;
+}
+.coverage{
+  width: 960px;
+   height: 2500px;
+   background-color: red;
+  
+   z-index: 1;
+   display: none;
+    // position: fixed;
+    // top: 200px;
+    // left: 580px;
+    opacity:0;
+    position: absolute;
+    top:0px;
+    left: 0px;
+}

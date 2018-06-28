@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理中心</title>
+    <link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+    <link rel="stylesheet/less" href="/yilaiyiwang/css/nav.less">
+    <link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+    <link rel="stylesheet/less" href="/yilaiyiwang/managementCenter/managementCenter.less">
+    <script src="/yilaiyiwang/js/jquery.js"></script>
+    <script src="/yilaiyiwang/layui/layui.all.js"></script>
+    <script src="/yilaiyiwang/js/less.js"></script>
+    <script src="/yilaiyiwang/js/root.js"></script>
+    <script src="/yilaiyiwang/managementCenter/managementCenter.js"></script>
+    <!--[if lt IE9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="infoArea clearfix">
+            <h1 class="logo">
+            <a href="javascript:;">
+                <img src="/yilaiyiwang/images/ylyw_logo.png" />
+            </a>
+        </h1>
+            <div class="topInfoArea clearfix">
+                <div class="personal" href="javascript:;">
+                  <span class="personalCenter"><span class="name"></span>/<span class="occupationName"></span>/<span class="deptName"></span>/<span class="hospitalName"></span>/</span>
+                    <ul>
+                        <li>
+                            <a href="/yilaiyiwang/center/center.html">个人中心</a>
+                        </li>
+                        <li>
+                            <a class="loginOut" href="javascript:;">退出登录</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="news newNews" href="/yilaiyiwang/newInformation/newInformation.html">新信息</a>
+                <div class="searchBox"><input class="searchInput" type="text" placeholder="请在这里搜索已结束的订单">
+                    <img class="searchBtn" src="/yilaiyiwang/images/search.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <ul class="guide clearfix">
+            <li type='1'>
+                <a href="/yilaiyiwang/workbench/workbench.html">医政工作台</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/DeskCalendar/DeskCalendar.html">科室日历</a>
+            </li>
+            <li type='1'>
+                <a class="active" href="/yilaiyiwang/managementCenter/managementCenter.html">管理中心</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/morkbench/morkbench.html">医生工作台</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/writeCase/createCase.html">创建病历</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/doctorAddress/doctorAddress.html">医生通讯录</a>
+            </li>
+            <li>
+                <a href="javascript:;">三甲早直播</a>
+            </li>
+            <li>
+                <a href="javascript:;">会员优享课程</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/statistics/statistics.html">数据统计</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="navContent clearfix">
+            <a class="active" href="javascript:;">医院信息</a>
+            <a href="javascript:;">科室列表</a>
+            <a href="javascript:;">医生列表</a>
+            <a href="javascript:;">职称列表</a>
+            <a href="javascript:;">专家类型与诊费</a>
+        </div>
+        <div class="mainContent">
+            <!-- 医院信息 -->
+            <div class="hospitalInfo">
+                <div>
+                    <h3>医院名称<span class="remind hospitalNameRemind">内容不能为空</span></h3>
+                    <input class="hospitalName" type="text" placeholder="请输入医院名称">
+                </div>
+                <div>
+                    <h3>医院电话<span class="prompt">最多可输入2个电话号码，用分号间隔</span><span class="remind hospitalTelRemind">内容不能为空</span></h3>
+                    <input class="hospitalTel" type="text" onkeyup="value=value.replace(/[^\d|；;-]/g,'')" placeholder="请输入医院电话">
+                </div>
+                <div>
+                    <h3>医院基础诊费设置<span class="remind hospitalPicRemind">内容不能为空</span></h3>
+                    <div class="item">
+                        <p>图文形式会诊/元</p>
+<input class="imgPic" type="text" onkeyup="value=value.replace(/[^(\d||/.)]/g,'')" placeholder="请输入">
+                    </div>
+                    <div class="item">
+                        <p>视频形式会诊/元</p>
+<input class="videoPic" type="text" onkeyup="value=value.replace(/[^(\d||/.)]/g,'')" placeholder="请输入">
+                    </div>
+                </div>
+                <a class="submitBtn" href="javascript:;">保存</a>
+            </div>
+            <!-- 科室列表 -->
+            <div class="sectionContainer">
+                <div class="sectionList">
+
+                        <!-- <div class="sectionBox">
+                        <div class="sectionTitle clearfix">
+                            <h3>一级科室名</h3>
+                            <div class="problemContent">
+                                <img src="/yilaiyiwang/images/problem.png" alt="">
+                                <div class="problemBox">
+                                    <p>1. 一级科室名称颜色为灰色时，代表该科室未被启用，将不会在通讯录中显示。为蓝色时，表示该科室已被启用。</p>
+                                    <p>2. 选择某个目录下的二级科室后，则默认该一级科室被启用，可在通讯录中查到</p>
+                                </div>
+                            </div>
+                            <p>请在下方提供的列表中选择，添加为该目录下的二级科室</p>
+                            <a class="shrinkBtn" href="javascript:;">收起列表</a>
+                            <div class="lineBox"></div>
+                        </div>
+                        <div class="sectionContent">
+                            <div class="selectedContent">
+                                <h4>已添加的二级科室，点击科室将减去，减去科室之前请先将该目录下的医生移动到其它科室</h4>
+                                <div class="selectedBox clearfix">
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                </div>
+                            </div>
+                            <div class="unselectedContent">
+                                <h4>可添加的二级科室，点击科室自动添加</h4>
+                                <div class="unselectedBox clearfix">
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                    <a href="javascript:;">全选</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <a class="sectionSubmit" href="javascript:;">保存</a>
+            </div>
+
+            <!-- 医生列表 -->
+            <div class="doctorContainer clearfix">
+                <ul class="oneLevelUl">
+                    <!-- <li class="hospitalItem active">
+                        <p class="hospitalName">北京朝阳医院西北京朝阳医院西</p>
+                        <ul class="sectionUl">
+                            <li class="sectionItem">
+                                <p class="sectionName">内科内科内科内科内科</p>
+                                <ul class="deptUl">
+                                    <li class="deptItem active">心脏中心心脏中心</li>
+                                    <li class="deptItem">心脏中心心脏中心</li>
+                                    <li class="deptItem">心脏中心</li>
+                                    <li class="deptItem">心脏中心</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+                <div class="doctorContent">
+                <div class="coverage"></div>
+                    <div class="textItem">
+                        <h3>登录账号</h3>
+                        <input id="userName"  class="accountText readonlyText" readonly="readonly" type="text">
+                    </div>
+                    <div class="textItem">
+                        <h3>权限类型</h3>
+                          <select class="powerSelect" name="" lay-filter="">
+                          </select>
+                    </div>
+                    <div class="textItem clearfix">
+                        <h3>上传医师执业资格证<span>限jpg/png/pdf格式</span></h3>
+                        <span class="cardName">打开本地文件</span>
+                        <input class="file cardUp" type="file">
+                        <a class="cardBtn" href="javascript:;">上传</a>
+                    </div>
+                    <div class="textItem clearfix">
+                        <h3>上传签名<span>限jpg/png/pdf格式</span></h3>
+                        <span class="signName">打开本地文件</span>
+                        <input class="file signUp" type="file">
+                        <a class="signBtn" href="javascript:;">上传</a>
+                    </div>
+                    <div class="textItem">
+                        <h3>姓名</h3>
+                        <input id="name" class="accountText" type="text">
+                    </div>
+                    <div class="textItem">
+                        <h3>电话</h3>
+                        <input id="telephone" class="accountText" type="text">
+                    </div>
+                    <div class="textItem">
+                        <h3>职称</h3>
+                          <select class="titleSelect" name="" lay-filter="">
+                          </select>
+                    </div>
+                    <div class="textItem">
+                        <h3>科室</h3>
+                          <select class="deptSelect" name="" lay-filter="" id="deptName">
+                          </select>
+                    </div>
+                    <div class="textItem">
+                        <h3>专家类型</h3>
+                          <select class="expertSelect" name="" lay-filter="">
+                          </select>
+                    </div>
+                    <div class="textItem">
+                        <h3>医院</h3>
+                        <input id="hospitalName" class="accountText readonlyText" readonly="readonly" type="text">
+                    </div>
+                    <div class="textItem">
+                        <h3>图文诊费/元</h3>
+                        <input id="medicalFees" class="accountText imgPrice" onkeyup="value=value.replace(/[^\d]/g,'')" type="text">
+                    </div>
+                    <div class="textItem">
+                        <h3>视频诊费/元</h3>
+                        <input id="medicalFeesVideo" class="accountText videoPrice" onkeyup="value=value.replace(/[^\d]/g,'')" type="text">
+                    </div>
+                    <div class="textareaItem">
+                        <h3>擅长<span>可输入擅长的疾病、擅长的治疗技术...</span></h3>
+<textarea id="beGoodAt" name="name" rows="" cols="" class="text-adaption"></textarea>
+                    </div>
+                    <div class="requireContent">
+                        <h3>病历要求<span>从下方提供的列表中选择</span></h3>
+                        <div class="requireBox">
+                            <!-- <div class="catalogue clearfix">
+                                <p>一级目录</p>
+                                <div class="checkAll ">全选</div>
+                                <div class="checkSingle">二级目录</div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fexidContent clearfix">
+                    <div>
+                        <a class="refuseBtn" href="javascript:;">拒绝</a>
+                        <a class="adoptBtn" href="javascript:;">通过审核</a>
+                    </div>
+                    <div>
+                        <a class="resetBtn" href="javascript:;">重置密码</a>
+                        <a class="modifyBtn" href="javascript:;">保存修改</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 职称列表 -->
+            <div class="doctorTitleList">
+                <p>医士</p>
+                <p>住院医师</p>
+                <p>主治医师</p>
+                <p>副主任医师</p>
+                <p>主任医师</p>
+            </div>
+            <!-- 专家类型与诊费 -->
+            <div class="expertTypeBox">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>专家类型</th>
+                            <th>图文会诊价格/元</th>
+                            <th>视频会诊价格/元</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="expertTypeTbody">
+
+                    </tbody>
+                </table>
+                <a class="addTypeBtn" href="javascript:;">添加类型</a>
+            </div>
+        </div>
+    </div>
+    <!-- 成功提示 -->
+    <div class="promptBox successBox clearfix">
+        <img src="/yilaiyiwang/images/success_img.png" alt="">
+        <span>操作成功</span>
+    </div>
+    <!-- 失败提示 -->
+    <div class="promptBox loseBox clearfix">
+        <img src="/yilaiyiwang/images/lose_img.png" alt="">
+        <span>操作失败</span>
+    </div>
+    <!-- 带按钮的提示 -->
+    <div class="operateBox deleteBox">
+        <p>确定要删除吗？</p>
+        <div class="btnBox">
+            <a class="noBtn" href="javascript:;">删除</a>
+            <a class="yesBtn" href="javascript:;">取消</a>
+        </div>
+    </div>
+    <div class="operateBox submitBox">
+        <p>确定要保存吗？</p>
+        <div class="btnBox">
+            <a class="noBtn" href="javascript:;">取消</a>
+            <a class="yesBtn" href="javascript:;">确定</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        Copyright © 2018 医来医往(北京)科技有限公司
+    </div>
+
+<div class="operateBox approved">
+    <p>确认该医生为您医院内部人员，并予以通过审核吗？</p>
+    <div class="btnBox">
+        <a class="approvedNoBtn leftBtn" href="javascript:;">取消</a>
+        <a class="approvedYesBtn rightBtn" href="javascript:;">确定</a>
+    </div>
+</div>
+<div class="operateBox decline">
+    <p>拒绝后，该医生将从您的列表中被删除</p>
+<div class="btnBox">
+<a class="declineNoBtn leftBtn" href="javascript:;">取消</a>
+<a class="declineYesBtn rightBtn" href="javascript:;">确定</a>
+    </div>
+</div>
+<div class="operateBox replacement">
+<p>点击确定后，密码将被重置为默认密码：yc123456</p>
+    <div class="btnBox">
+<a class="replacementNoBtn leftBtn" href="javascript:;">取消</a>
+<a class="replacementYesBtn rightBtn" href="javascript:;">确定</a>
+    </div>
+</div>
+
+</body>
+
+</html>

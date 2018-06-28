@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>医政工作台</title>
+    <link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+    <link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+    <link rel="stylesheet/less" href="/yilaiyiwang/css/nav.less">
+    <link rel="stylesheet/less" href="/yilaiyiwang/workbench/css/workbench.less" />
+    <script src="/yilaiyiwang/js/jquery.js"></script>
+    <script src="/yilaiyiwang/layui/layui.all.js"></script>
+    <script src="/yilaiyiwang/js/root.js"></script>
+    <script src="/yilaiyiwang/js/less.js"></script>
+    <script type="text/javascript" src="/yilaiyiwang/workbench/js/workbench.js"></script>
+    <!--[if lt IE9]>
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif]-->
+</head>
+
+<body>
+    <div class="header">
+        <div class="infoArea clearfix">
+            <h1 class="logo">
+            <a href="javascript:;">
+                <img src="/yilaiyiwang/images/ylyw_logo.png" />
+            </a>
+        </h1>
+            <div class="topInfoArea clearfix">
+                <div class="personal" href="javascript:;">
+                  <span class="personalCenter"><span class="name"></span>/<span class="occupationName"></span>/<span class="deptName"></span>/<span class="hospitalName"></span>/</span>
+                    <ul>
+                        <li>
+                            <a href="/yilaiyiwang/center/center.html">个人中心</a>
+                        </li>
+                        <li>
+                            <a class="loginOut" href="javascript:;">退出登录</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="news newNews" href="/yilaiyiwang/newInformation/newInformation.html">新信息</a>
+                <div class="searchBox"><input class="searchInput" type="text" placeholder="请在这里搜索已结束的订单">
+                    <img class="searchBtn" src="/yilaiyiwang/images/search.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <ul class="guide clearfix">
+            <li type='1'>
+                <a class="active" href="/yilaiyiwang/workbench/workbench.html">医政工作台</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/DeskCalendar/DeskCalendar.html">科室日历</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/managementCenter/managementCenter.html">管理中心</a>
+            </li>
+            <li>
+                <a href="javascript:;">三甲早直播</a>
+            </li>
+            <li>
+                <a href="javascript:;">会员优享课程</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/statistics/statistics.html">数据统计</a>
+            </li>
+        </ul>
+    </div>
+    <div id="container" class="clearfix">
+        <div id="left">
+            <div class="leftNav active clearfix">
+                <div class="leftTitle">受邀列表</div>
+                <div class=""></div>
+                <div id="left_efefef"></div>
+                <ul class="leftUL" id="inviteUl">
+                    <!-- <li class="ulAct">
+						<span>待收诊</span>
+						<div class="unRead"></div>
+					</li> -->
+                </ul>
+            </div>
+            <div class="leftNav clearfix">
+                <div class="leftTitle">发出列表</div>
+                <div class=""></div>
+                <div id="left_efefef"></div>
+                <ul class="leftUL" id="issueUl">
+                    <!-- <li class="ulAct">
+						<span>待收诊</span>
+						<div class="unRead"></div>
+					</li> -->
+                </ul>
+            </div>
+            <!-- <div class="leftNav clearfix drafts">
+                <div class="leftTitle">草稿箱</div>
+                <div class="unReadNum">0</div>
+                <div class=""></div>
+                <div id="left_efefef"></div>
+            </div> -->
+        </div>
+        <div id="right">
+            <div class="tableContent drafts_table">
+                <div class="tableBox">
+                    <table class="f16" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr class="h50">
+                                <th class="w520">病历主题</th>
+                                <th class="w520 tl2em">时间</th>
+                            </tr>
+                        </thead>
+                        <tbody class="drafts_tbody">
+                            <!-- <tr>
+        						<td>
+        							<p class="w520">***/男/49岁/病毒性心肌炎、高高高高高高高高高高高高高高高高高高高高</p>
+        						</td>
+        						<td class="tl2em">今天14:59</td>
+        					</tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pageContent">
+                    <div class="pageBox" id="drafts"></div>
+                </div>
+            </div>
+            <div class="tableContent tables">
+                <div class="tableBox">
+                    <table class="f16" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr class="h50">
+                                <th class="w40 tc">急</th>
+                                <th class="w70 tc">类型</th>
+                                 <th class="w230">病历主题</th>
+                                <th class="w160">收件人</th>
+                                <th class="w280">发件人</th>
+                                <th class="w70 tc">方式</th>
+                                <th class="w195 tl2em">时间</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabContent">
+                            <!-- <tr>
+    						<td>
+    							<img class="w14" src="/yilaiyiwang/images/light.png" />
+    						</td>
+    						<td class="tc">会诊</td>
+    						<td>
+    							<p class="overHidden1">
+    								<吴艳博;主任医师;心内科;河北省第三医院>
+    							</p>
+    						</td>
+    						<td>
+    							<p class="overHidden2">
+    								<吴艳博;主任医师;心内科;河北省第三医院>
+    							</p>
+    						</td>
+    						<td>
+    							<p class="overHidden3">***/男/49岁/病毒性心肌炎、高高高高高高高高高高高高高高高高高高高高</p>
+    						</td>
+    						<td class="tc">视频</td>
+    						<td class="tl2em">今天14:59</td>
+    					</tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pageContent">
+                    <div class="pageBox" id="listBox"></div>
+                </div>
+            </div>
+
+            <!-- <div class="wrap">
+                <div id="calendar" class="">
+                    <div class="small_button">
+                        <span class="one">日历工作表</span>
+                    </div>
+                    <div class="cal_header">
+                        <h3>工作日历表</h3>
+                        <span>视频会诊</span>
+                        <span></span>
+                        <span>课程</span>
+                        <span></span>
+
+                    </div>
+                    <div class="rlBox">
+                        <div class="site-demo-laydate">
+                            <div class="layui-inline" id="test-n1"></div>
+                        </div>
+                    </div>
+                    <div class="schedule">
+                        <p class="schedule_frist">
+                            <span>14:00</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span>已排期</span>
+                            <span>/</span>
+                            <span>视频会诊</span>
+                        </p>
+                        <div class="schedule_xian"></div>
+
+                        <p>
+                            <span>姓名</span>/
+                            <span>性别</span>/
+                            <span>年龄</span>/
+                            <span>病因巴拉哔哩哔哩巴拉哔哩哔哩</span>
+                        </p>
+                        <p>
+                            <span> &lt;</span>
+                            <span>医生姓名</span>;
+                            <span>职称</span>;
+                            <span>科室</span>;
+                            <span>医院</span>;
+                            <span>&gt;</span>
+
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2018 医来医往(北京)科技有限公司
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改病历</title>
+    <link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+    <link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+    <link rel="stylesheet/less" href="/yilaiyiwang/css/nav.less">
+    <link rel="stylesheet/less" href="/yilaiyiwang/workbench/css/modifyRecords.less">
+    <script src="/yilaiyiwang/js/jquery.js"></script>
+    <script src="/yilaiyiwang/js/jquery-ui.min.js"></script>
+    <script src="/yilaiyiwang/layui/layui.all.js"></script>
+<script src="/yilaiyiwang/js/PDFObject.min.js"></script>
+    <script src="/yilaiyiwang/js/less.js"></script>
+    <script src="/yilaiyiwang/js/root.js"></script>
+    <script src="/yilaiyiwang/js/imgFileupload.js"></script>
+    <script src="/yilaiyiwang/workbench/js/modifyRecords.js"></script>
+    <!--[if lt IE9]>
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif]-->
+</head>
+
+<body>
+    <div class="header">
+        <div class="infoArea clearfix">
+            <h1 class="logo">
+            <a href="javascript:;">
+                <img src="/yilaiyiwang/images/ylyw_logo.png" />
+            </a>
+        </h1>
+            <div class="topInfoArea clearfix">
+                <div class="personal" href="javascript:;">
+                  <span class="personalCenter"><span class="name"></span>/<span class="occupationName"></span>/<span class="deptName"></span>/<span class="hospitalName"></span>/</span>
+                    <ul>
+                        <li>
+                            <a href="/yilaiyiwang/center/center.html">个人中心</a>
+                        </li>
+                        <li>
+                            <a class="loginOut" href="javascript:;">退出登录</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="news newNews" href="/yilaiyiwang/newInformation/newInformation.html">新信息</a>
+                <div class="searchBox"><input class="searchInput" type="text" placeholder="请在这里搜索已结束的订单">
+                    <img class="searchBtn" src="/yilaiyiwang/images/search.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <ul class="guide clearfix">
+            <li type='1'>
+                <a class="active" href="/yilaiyiwang/workbench/workbench.html">医政工作台</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/DeskCalendar/DeskCalendar.html">科室日历</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/managementCenter/managementCenter.html">管理中心</a>
+            </li>
+            <li>
+                <a href="javascript:;">三甲早直播</a>
+            </li>
+            <li>
+                <a href="javascript:;">会员优享课程</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/statistics/statistics.html">数据统计</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <main>
+        <div class="tabContent clearfix">
+            <a class="foundBtn active" href="javascript:;">
+                <i></i>创建病历</a>
+        </div>
+        <div class="contentBox">
+            <!-- 填信息 -->
+            <div class="foundBox clearfix">
+                <div class="leftBox">
+                    <ul class="oneLevelUl">
+                        <!-- <li class="hospitalItem active">
+                            <p class="hospitalName">北京朝阳医院西北京朝阳医院西</p>
+                            <ul class="sectionUl">
+                                <li class="sectionItem active">
+                                    <p class="sectionName">内科内科内科内科内科</p>
+                                    <ul class="deptUl">
+                                        <li class="deptItem active">心脏中心心脏中心</li>
+                                        <li class="deptItem">心脏中心心脏中心</li>
+                                        <li class="deptItem">心脏中心</li>
+                                        <li class="deptItem">心脏中心</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="rightBox">
+                    <div class="hosp clearfix">
+                        <img src="/yilaiyiwang/images/information.png" alt="写病历患者基本信息">
+                        <span>患者基本信息</span>
+                        <span>资料尽可能填写完整</span>
+                        <div class="wire" style="width: 680px;"></div>
+                    </div>
+                    <!-- 患者基本信息 -->
+                    <div class="information clearfix">
+                        <div class="clearfix">
+                            <div class="fl">
+                                <p>姓名</p>
+                                <input type="text" name="" id="username" class="w140 " placeholder="请输入姓名">
+                            </div>
+
+                            <div class="fl">
+                                <p>身份证号</p>
+                                <input type="text" name="" id="idCard" class="w200" placeholder="请输入身份证号">
+                            </div>
+
+                            <div class="fl">
+                                <p>
+                                    <div class="layui-input-inline">
+                                        <select name="quiz1" class="choiceAge">
+                                            <option value="岁" selected="">年龄/岁</option>
+                                            <option value="月">年龄/月</option>
+                                            <option value="周">年龄/周</option>
+                                            <option value="天">年龄/天</option>
+                                        </select>
+                                        <i class="age_ico"></i>
+                                    </div>
+                                </p>
+                                <input type="text" name="" id="age" class="w140" placeholder="请输入年龄">
+                            </div>
+                            <div class="fl">
+                                <p>性别</p>
+                                <div class="sex clearfix">
+                                    <a class="active" href="javascript:;">男</a>
+                                    <a class="" href="javascript:;">女</a>
+                                </div>
+                            </div>
+                            <div class="fl bThree_p">
+                                <p>加急</p>
+                                <div class="urgent">
+                                    <a class="active" value="0" href="javascript:;">否</a>
+                                    <a class="" value="1" href="javascript:;">是</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="width: 810px;" class="clearfix">
+                            <div class="fl">
+                                <p>身高/cm</p>
+                                <input type="text" name="" id="high" class="w140 " placeholder="请输入身高">
+                            </div>
+
+                            <div class="fl">
+                                <p>体重/kg</p>
+                                <input type="text" name="" id="weight" class="w200" placeholder="请输入体重">
+                            </div>
+                            <div class="fl">
+                                <p>电话号码</p>
+                                <input type="text" name="" id="phone" class="w140 " placeholder="请输入电话号码">
+                            </div>
+
+                            <div class="fl">
+                                <p>常住城市</p>
+                                <input type="text" name="" id="address" class="w200" placeholder="请输入常住城市">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mg20">初步诊断
+                        <span class="choose">请简要记录疾病名称等</span>
+                    </p>
+                    <textarea id="createCase_textDiagnose" class="text-adaption" rows="1"></textarea>
+                    <p class="mg20">会/转诊目的
+                        <span class="choose">将您想对接诊医生说的话写在这里...</span>
+                    </p>
+                    <textarea id="createCase_textGola" class="text-adaption" rows="1"></textarea>
+
+                    <!--电子病历附件 -->
+                    <div class="hosp clearfix" id="positonimg">
+                        <img src="/yilaiyiwang/images/Enclosure.png" alt="写病历患者基本信息">
+                        <span>电子病历附件(<span class="fileCount">0</span>)张</span>
+                        <span>请将文件按时间顺序从前到后排列，可拖动图片调整顺序</span>
+                        <div class="wire" style="width: 390PX;"></div>
+                    </div>
+                    <ul class="upfileUl">
+                        <!-- <li class="upfileItem clearfix">
+                            <div class="upfileContent">
+                                <div class="operateLeft">首页-封面(<span class="">0</span>张)</div>
+                                <ul class="fileContent clearfix">
+                                    <li class="fileAdd">
+                                        <a class="addfileBtn" href="javascript:;"></a>
+                                        <input class="fileInput" type="file" multiple>
+                                        <p class="fileName">添加文件</p>
+                                    </li>
+                                    <li class="fileItem">
+                                        <div></div>
+                                        <p class="fileName active">文件名字</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<div class="footer">
+    Copyright © 2018 医来医往(北京)科技有限公司
+</div>
+<div class="nav">
+    <div class="handle">
+<input type="button" value="取消" class="cancel">
+        <input type="button" value="保存修改" class="save">
+    </div>
+
+</div>
+
+
+
+    <!-- 查看大图部分 -->
+    <div class="bigImgContainer clearfix">
+        <div class="bigImgBox">
+            <div class="bigImg"></div>
+        </div>
+        <div class="bigImgRightBox">
+            <div class="fileNameBox">
+                <h2 class="fileTitle">
+                    <span></span>文件名</h2>
+                <p class="fileName">图片名字</p>
+<!-- 点击下载dcm文件块 -->
+<div class="downlodeFile">
+    <img src="/yilaiyiwang/images/download.png" alt="点击下载文件">
+    <a href="javascript:;">点击下载文件</a>
+</div>
+            </div>
+            <div class="fileDescBox">
+                <h2 class="descTitle">备注</h2>
+                <textarea class="descText" name="name" rows="" cols=""></textarea>
+            </div>
+            <div class="switchBox clearfix">
+                <a class="prev" href="javascript:;">上一个文件</a>
+                <a class="next" href="javascript:;">下一个文件</a>
+            </div>
+        </div>
+        <a class="closeBtn" href="javascript:;">关闭</a>
+    </div>
+
+<div class="incomplete promptText">
+    <p>病历不完整，请完善！</p>
+</div>
+<div class="modifier promptText">
+    <p>输入内容格式有误,请修改！</p>
+</div>
+
+
+</body>
+
+</html>

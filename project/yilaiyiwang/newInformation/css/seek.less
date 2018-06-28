@@ -1,0 +1,75 @@
+body {
+	background-color: #efefef;
+}
+
+.main {
+	width: 1200px;
+	margin: 100px auto 0;
+	background: #fff;
+	min-height: 500px;
+
+	.titleContent {
+		box-sizing: border-box;
+		padding: 0 70px;
+		border-bottom: 1px solid #dbdbdb;
+
+		> h3 {
+			float: left;
+			margin: 40px 0 0;
+			display: inline-block;
+			padding: 0 80px 0 0;
+			font-size: 26px;
+			color: #1937bc;
+			line-height: 45px;
+			border-bottom: 8px solid #efefef;
+			background: url("../../images/search_blue.png") no-repeat 110px center;
+		}
+		> p{
+			float: left;
+			margin: 40px 0 0 30px;
+			line-height: 45px;
+		}
+	}
+
+	.tableBox {
+		min-height: 400px;
+		table {
+			width: 1200px;
+			thead {
+				tr {
+					background: #eef1fb;
+					th {
+						height: 50px;
+						line-height: 50px;
+						text-align: left;
+						padding: 0 0 0 30px;
+					}
+				}
+			}
+			tbody {
+				tr {
+					background: #f4f4f4;
+					&:nth-child(odd) {
+						background: #fff;
+					}
+					td {
+						text-align: left;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						height: 50px;
+						padding-left: 30px;
+					}
+				}
+			}
+		}
+	}
+
+	.pageContent {
+		text-align: center;
+
+		.pageBox {
+			display: inline-block;
+		}
+	}
+}

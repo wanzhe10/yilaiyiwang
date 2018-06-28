@@ -1,0 +1,834 @@
+body {
+	background-color: #efefef;
+	min-width: 1200px;
+}
+body .layui-layer {
+    background: none !important;
+}
+.bgSize {
+    background-size: 44px 50px !important;
+}
+
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.cl {
+	clear: both;
+}
+
+.w18 {
+	width: 18px;
+}
+
+.w20 {
+	width: 20px;
+}
+
+.fw {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* ------公共头部头部结束------- */
+main {
+	width: 1200px;
+	min-width: 1200px;
+	margin: 140px auto 0;
+	background-color: #fff;
+
+	.bgli {
+		background-color: #516dcf;
+		border-radius: 0 0 10px 0;
+	}
+
+	.right_main {
+		width: 1140px;
+		margin: 40px auto 0;
+		padding-bottom: 40px;
+		overflow: hidden;
+	}
+
+	.hosp {
+		// height: 90px;
+		// line-height: 90px;
+		width: 1140px;
+		position: relative;
+
+		img {
+			margin-top: -5px;
+		}
+		// span{
+		// font-size: 16px;
+		// font-weight: bold;
+		//     }
+	}
+	// 上传图片
+    .upfileItem {
+		margin: 28px;
+		margin-left: 0px;
+
+        .upfileContent {
+            box-sizing: border-box;
+			width: 985px;
+            margin-top:30px;
+			
+
+            .operateLeft {
+                position: relative;
+                box-sizing: border-box;
+                padding-left: 16px;
+                font-size: 14px;
+
+                &:after {
+                    content: ' ';
+                    position: absolute;
+                    top: 4px;
+                    left: 0;
+                    width: 6px;
+                    height: 12px;
+                    background: #eef1fb;
+                }
+            }
+        }
+
+        .fileContent {
+            height: 100px;
+
+            .fileAdd,
+            .fileItem {
+                position: relative;
+                box-sizing: border-box;
+                margin: 19px 4px 0;
+                float: left;
+
+                > a {
+                    display: block;
+                    box-sizing: border-box;
+                    width: 100px;
+                    height: 100px;
+                    border: 1px solid #dbdbdb;
+                    border-radius: 10px;
+                    background: url("../../images/addfile.png") no-repeat center;
+                }
+
+                .fileInput {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100px;
+                    height: 100px;
+                    margin: 0;
+                    padding: 0;
+                    opacity: 0;
+                    filter:alpha(opacity=0);
+                }
+
+                > div {
+                    box-sizing: border-box;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    background-size: contain; 
+                    background-repeat: no-repeat;
+                    border: 1px solid #dbdbdb;
+                    background-color: #f4f4f4;
+                    background-position: center;
+                }
+
+                > img {
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    width: 22px;
+                    height: 22px;
+                    z-index: 3;
+                }
+
+                .fileName {
+                    margin-top: 8px;
+                    float: left;
+                    box-sizing: border-box;
+                    padding-right: 20px;
+                    width: 100px;
+                    color: #101010;
+                    font-size: 14px;
+                    font-weight: 600;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .active {
+                    background: url("../../images/remark.png") no-repeat right center;
+                }
+            }
+        }
+    }
+
+	.wire {
+		// width: 84%;
+		height: 2px;
+		background: #efefef;
+		position: absolute;
+	}
+
+	.wire1 {
+		top: 50px;
+		right: 0px;
+		    width: 990px;
+	}
+
+	.wire2 {
+		top: 40px;
+		right: 0px;
+		    width: 960px;
+	}
+
+	.wire3 {
+		top: 40px;
+		right: 0px;
+		    width: 1025px;
+	}
+
+	.wire4 {
+		top: 40px;
+		right: 0px;
+		        width: 1060px;
+	}
+
+	.wire5 {
+		top: 40px;
+		right: 0px;
+		    width: 1025px;
+	}
+
+	.wire6 {
+		top: 40px;
+		right: 0px;
+		    width: 1025px;
+	}
+	.pb{
+		padding-bottom: 30px;	
+	}
+
+
+	.wire7 {
+		width: 1030px;
+		top: 40px;
+		right: 0px;
+	}
+
+	.wire8 {
+		width: 1030px;
+		top: 40px;
+		right: 0px;
+	}
+
+	.essentialInformation {
+		padding-top: 40px;
+
+		.modifier1 {
+			position: absolute;
+			right: 0;
+			top: 40px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+			// position: relative;
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+				color: #999999;
+			}
+
+			i {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.EMR,
+	.ReceiptDoctor,
+	.fees,
+	.lecturer,
+	.order,
+	.schedule,
+	.tickling {
+		padding-top: 30px;
+	}
+
+	.essentialInformation_modules {
+		vertical-align: bottom;
+		margin-top: 30px;
+
+		.bFirst_p {
+			font-size: 18px;
+			font-weight: bold;
+
+			p {
+				display: inline;
+			}
+		}
+
+		.bSecond_p {
+			padding-left: 20px;
+			font-size: 14px;
+			padding-top: 5px;
+
+			p {
+				display: inline;
+				padding-right: 20px;
+			}
+		}
+
+		.bThree_p {
+			padding-top: 5px;
+
+			p {
+				display: inline;
+				padding-left: 10px;
+			}
+		}
+
+		.tentative {
+			padding: 20px 0;
+		}
+
+		.goal {
+			width: 100%;
+
+			p {
+				display: inline;
+				font-size: 14px;
+				line-height: 26px;
+			}
+		}
+	}
+
+	.EMR {
+		span {
+			padding-right: 10px;
+		}
+
+		.modifier2 {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+			cursor: pointer;
+			
+
+			span {
+				color: #999999;
+			}
+
+			i {
+				left: 114px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.EMR_module {
+		display: none;
+
+		.whiteBlock {
+			width: 6px;
+			height: 12px;
+			background-color: #eef1fb;
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		h3 {
+			display: inline-block;
+			// position: relative;
+			padding-top: 30px;
+
+			span {
+				font-size: 14px;
+			}
+		}
+
+		.add_img {
+			display: block;
+			float: left;
+			margin-top: 20px;
+			margin-right: 10px;
+
+			.small_img {
+				width: 98px;
+				height: 98px;
+				border-radius: 10px;
+				overflow: hidden;
+				border: 1px solid #dbdbdb;
+				margin: 5px; // overflow: hidden;
+				float: left;
+
+				img {
+					width: 98px;
+					height: 98px;
+					//  float: left;
+				}
+			}
+		}
+
+		.remarkTxt {
+			margin: 10px 0;
+			width: 70px;
+			font-size: 14px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			display: inline-block;
+		}
+	}
+
+	.ReceiptDoctor {
+		.modifier3 {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+				color: #999999;
+			}
+
+			i {
+				right: 0;
+				cursor: pointer;
+			}
+		}
+
+		.ReceiptDoctor_modules {
+			h4 {
+				padding-top: 30px;
+			}
+		}
+	}
+
+	.schedule {
+		.modifier5 {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+				color: #999999;
+			}
+
+			i {
+				right: 0;
+				cursor: pointer;
+			}
+		}
+
+		.schedule_modules {
+			p {
+				padding-top: 30px;
+			}
+		}
+	}
+
+	.lecturer {
+		.modifier7 {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+				color: #999999;
+			}
+
+			i {
+				right: 0;
+				cursor: pointer;
+			}
+		}
+
+		.lecturer_modules {
+			p {
+				padding-top: 30px;
+				line-height: 26px;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.tickling {
+		.modifier8 {
+			position: absolute;
+			right: 0;
+			top: 30px;
+			padding-right: 10px;
+			padding-left: 20px;
+			background-color: #fff;
+			color: #999999;
+
+			span {
+				padding-right: 10px;
+				cursor: pointer;
+				color: #999999;
+			}
+
+			i {
+				right: 0;
+				cursor: pointer;
+			}
+		}
+
+		.tickling_modules {
+			p {
+				padding-top: 30px;
+				font-size: 14px;
+				line-height: 26px;
+			}
+		}
+	}
+}
+
+.fees {
+	.fees_table {
+		margin-top:20px;
+			cursor: default;
+		.layui-table {
+			color: black;
+			font-size: 14px;
+
+			thead {
+				tr:nth-child(1) {
+					background-color: #516dcf;
+					font-size: 14px;
+					color: #fff;
+					font-weight: bold;
+				}
+			}
+
+			.tbody_doc {
+				tr:nth-child(odd) {
+					background-color: #eef1fb;
+
+					input {
+						background-color: #eef1fb;
+					}
+				}
+
+				tr:nth-child(even) {
+					background-color: #fff;
+				}
+			}
+
+			.bgfees {
+				background-color: #eef1fb;
+			}
+
+			input {
+				color: #1937bc;
+			}
+
+			.dynamicAggregate {
+				color: #1937bc;
+				font-weight: bold;
+			}
+
+			.aggregate {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+
+.orderInformation {
+            h4 {
+                padding-bottom: 20px;
+
+                span {
+                    padding-right: 10px;
+                }
+            }
+        }
+
+.chooseBtn {
+	position: absolute;
+	top: 7px;
+	right: 0;
+	background: url("/yilaiyiwang/images/down.png") no-repeat 0 0;
+	width: 10px;
+	height: 6px;
+}
+
+.foundBtn {
+	background: url("/yilaiyiwang/images/icon_top.png") no-repeat 0 0;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 5px;
+}
+/* 时间轴 */
+.timeline {
+	 margin-top: 10px;
+	.layui-timeline-axis {
+		color: #f6c567;
+		// height: 16px;
+	}
+
+	// .layui-timeline-axis {
+	// 	left: -4px;
+	// 	top: 4px;
+	// }
+
+	.layui-timeline-item:before {
+		top: 10px;
+	}
+
+	.layui-timeline-item:before,
+	hr {
+		background-color: #f6c567;
+	}
+
+	p,
+	span {
+		font-size: 14px;
+		color: #101010;
+	}
+
+	.fw {
+		font-weight: bold;
+	}
+
+	.pl30 {
+		padding-left: 30px;
+	}
+}
+
+.nav {
+	width: 100%;
+	height: 70px;
+	background-color: #586acb;
+	line-height: 70px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 200;
+
+	.handle {
+		float: right;
+		margin-right: 30px;
+
+		span {
+			font-size: 22px;
+			color: #fff;
+			font-weight: bold;
+		}
+
+		span:nth-child(1) {
+			padding-right: 20px;
+		}
+
+		input {
+			border: 1px solid #3249c2;
+			background-color: #fff;
+			font-size: 14px;
+			border-radius: 10px;
+			height: 40px;
+			padding: 0 5px;
+			cursor: pointer;
+		}
+
+		.getBack {
+			width: 120px;
+			margin-left: 40px;
+		}
+
+		.entrance {
+			width: 200px;
+		}
+	}
+}
+
+// 查看大图
+.bigImgContainer {
+    display: none;
+    position: relative;
+    width: 1167px;
+    height: 700px;
+    // background: transparent !important;
+    background: rgba(0, 0, 0, 0.3);
+    .bigImgBox {
+        float: left;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        width: 665px;
+        height: 700px;
+        background-color: #f4f4f4;
+        .bigImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            float: left;
+            width: 665px;
+            height: 700px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+
+    .bigImgRightBox {
+        float: right;
+        width: 342px;
+        margin: 0 130px 0 30px;
+
+        .fileNameBox {
+			position: relative;
+            box-sizing: border-box;
+            width: 342px;
+            height: 102px;
+            padding: 20px;
+            background: rgba(90,90,90,.9);
+            border-radius: 10px;
+
+            .fileTitle {
+                font-size: 16px;
+                line-height: 20px;
+                color: #f6c567;
+
+                > span {
+                    display: block;
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    background: #f6c567;
+                    border-radius: 10px 0 0 0;
+                    margin-right: 10px;
+                }
+            }
+
+            .fileName {
+                font-size: 14px;
+                color: #fff;
+                font-weight: 600;
+                width: 100%;
+                margin: 20px 20px 0 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+			}
+			 .downlodeFile{
+				display: none;
+                position: absolute;
+                top:18px;
+                left:220px;
+                a{
+                    color:#f6c567;
+                }
+            }
+        }
+
+        .fileDescBox {
+            box-sizing: border-box;
+            width: 342px;
+            height: 420px;
+            padding: 20px;
+            margin: 10px 0 0;
+            border-radius: 10px;
+            background: rgba(90,90,90,.9);
+
+            .descTitle {
+                box-sizing: border-box;
+                font-size: 16px;
+                line-height: 20px;
+                color: #f6c567;
+                background: url("../../images/remark_active.png") no-repeat left center;
+                padding-left: 30px;
+            }
+
+            .descText {
+                box-sizing: border-box;
+                margin-top: 12px;
+                width: 100%;
+                height: 360px;
+                line-height: 26px;
+                background: transparent;
+                padding: 0 5px;
+                color: #fff;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .switchBox {
+            margin-top: 25px;
+
+            > a {
+                display: block;
+                float: left;
+                display: block;
+                box-sizing: border-box;
+                width: 166px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                color: #fff;
+                background: #101010;
+                font-size: 14px;
+                font-weight: 600;
+                border: 1px solid #666;
+                border-radius: 10px;
+            }
+
+            .next {
+                float: right;
+            }
+        }
+    }
+
+    .closeBtnImg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-sizing: border-box;
+        color: #fff;
+        width: 100px;
+		height: 26px;
+		line-height: 26px;
+        font-size: 18px;
+        padding-left: 45px;
+        background: url("../../images/close.png") no-repeat 15px center;
+    }
+}

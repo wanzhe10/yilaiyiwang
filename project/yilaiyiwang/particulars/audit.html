@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>审核发布</title>
+<link rel="stylesheet" href="/yilaiyiwang/css/reset.css">
+<link rel="stylesheet" href="/yilaiyiwang/layui/css/layui.css">
+<link rel="stylesheet/less" href="/yilaiyiwang/css/nav.less">
+<link rel="stylesheet/less" href="/yilaiyiwang/particulars/css/audit.less" />
+<script src="/yilaiyiwang/js/jquery.js"></script>
+<script src="/yilaiyiwang/layui/layui.all.js"></script>
+<script src="/yilaiyiwang/js/less.js"></script>
+<script type="text/javascript" src="/yilaiyiwang/particulars/js/audit.js"></script>
+            <!-- [if lt IE9]>
+		    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif] -->
+</head>
+<body>
+    <div class="header">
+        <div class="infoArea clearfix">
+            <h1 class="logo">
+            <a href="javascript:;">
+                <img src="/yilaiyiwang/images/ylyw_logo.png" />
+            </a>
+        </h1>
+            <div class="topInfoArea clearfix">
+                <div class="personal" href="javascript:;">
+                  <span class="personalCenter"><span class="name"></span>/<span class="occupationName"></span>/<span class="deptName"></span>/<span class="hospitalName"></span>/</span>
+                    <ul>
+                        <li>
+                            <a href="/yilaiyiwang/center/center.html">个人中心</a>
+                        </li>
+                        <li>
+                            <a class="loginOut" href="javascript:;">退出登录</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="news newNews" href="/yilaiyiwang/newInformation/newInformation.html">新信息</a>
+                <div class="searchBox"><input class="searchInput" type="text" placeholder="请在这里搜索已结束的订单">
+                    <img class="searchBtn" src="/yilaiyiwang/images/search.png" alt="">
+                </div>
+
+            </div>
+        </div>
+        <ul class="guide clearfix">
+            <li type='1'>
+                <a class="active" href="/yilaiyiwang/workbench/workbench.html">医政工作台</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/DeskCalendar/DeskCalendar.html">科室日历</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/managementCenter/managementCenter.html">管理中心</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/morkbench/morkbench.html">医生工作台</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/writeCase/createCase.html">创建病历</a>
+            </li>
+            <li type='0'>
+                <a href="/yilaiyiwang/doctorAddress/doctorAddress.html">医生通讯录</a>
+            </li>
+            <li>
+                <a href="javascript:;">三甲早直播</a>
+            </li>
+            <li>
+                <a href="javascript:;">会员优享课程</a>
+            </li>
+            <li type='1'>
+                <a href="/yilaiyiwang/statistics/statistics.html">数据统计</a>
+            </li>
+        </ul>
+    </div>
+
+<main class="clearfix">
+
+        <div class="right_main">
+            <!-- 患者基本信息模块 -->
+<div class="hosp  essentialInformation clearfix">
+                <img src="/yilaiyiwang/images/information.png" alt="写病历患者基本信息">
+<span class="fw">患者基本信息</span>
+<div class="wire wire1"></div>
+<div class="modifier1"><a href=""><span>修改</span></a><i class="chooseBtn" id="cut"></i></div>
+<!-- 患者基本信息的可收缩模块 -->
+<div class="essentialInformation_modules">
+     <span class="bFirst_p"><p class="patientName">***</p>/<p class="sex"></p>/<p class="age"></p>/<p class="high"></p>cm/<p class="weight"></p>kg</span>
+    <span class="bSecond_p">常住址：
+        <p>北京</p>
+    </span>
+    <span class="bThree_p">
+        <img src="/yilaiyiwang/images/light.png" alt="">
+        <p>加急</p>
+    </span>
+
+    <p class="tentative">初步诊断：
+        <span>高血压</span>、
+        <span>心脏病</span>
+    </p>
+    <div class="goal">
+        <!-- <p>会/转诊目的：</p> -->
+        <p>这里行间距26px，当内容很多时，显示多行的样式。这里行间距26px， 当内容很多时，显示多行的样式。这里行间距26px，当内容很多时， 显示多行的样式。这里行间距26px，当内容很多时，显示多行的样式。 这里行间距26px，当内容很多时，显示多行的样式。这里行间距26px，
+            当内容很多时，显示多行的样式。这里行间距26px，当内容很多时，显示多行的样式。
+        </p>
+    </div>
+</div>
+            </div>
+<!-- 电子病历模块 -->
+<div class="hosp EMR clearfix ">
+<img src="/yilaiyiwang/images/Enclosure.png" alt="写病历患者基本信息" style="    margin-top: -4px;">
+<span class="fw">电子病历附件<span style="padding-right:0px">(</span><span class="sum" style="padding-right:0px">0</span><span style="padding-right:0px">)</span>张</span>
+<div class="wire wire2"></div>
+<div class="modifier2"><a href=""><span>修改</span></a>
+<i class="chooseBtn" id="cutEle"></i>
+</div>
+<!-- 电子病历的可收缩模块 -->
+        <div class="EMR_module">
+                <h3><div class="whiteBlock"></div><span class="levelOne">首页</span><span>-</span><span class="levelTwo">封面</span><span>(</span><span>0</span><span>)</span>张</h3>
+            <!-- 动态创建病历图片模块 -->
+            <div class="layui-upload clearfix">
+                <div class="add_img">
+                    <div class="small_img"></div>
+                    <p>
+                        <span class="remarkTxt">冒泡馍馍默默默默dfdsfg</span>
+                        <img src="/yilaiyiwang/images/256804485210924202.png" alt="">
+                    </p>
+                </div>
+            </div>
+     </div>
+
+ </div>
+
+                  <!-- 收件医生模块 -->
+<div class="hosp  ReceiptDoctor clearfix">
+                        <img src="/yilaiyiwang/images/selectDoc.png" alt="收件医生">
+                <span class="fw">收件医生</span>
+                        <div class="wire wire3"></div>
+                        <div class="modifier3">
+                           <a href=""><span>修改</span></a>
+<i class="chooseBtn" id="cutDoc"></i>
+                        </div>
+                        <!-- 收件医生可收缩模块 -->
+                        <div class="ReceiptDoctor_modules"><h4>
+    <span>收件人:</span>
+    <span style="padding-right: 0px">主会诊人</span>
+    <span style="padding-right: 0px">
+        <吴艳博/主任医师/心内科/北京朝阳医院本院>
+    </span>；
+    <span>
+        <吴艳博/主任医师/心内科/北京朝阳医院本院>
+    </span>
+</h4>
+</div>
+ </div>
+                   <!-- 诊费模块 -->
+<div class="hosp  fees clearfix">
+    <img src="/yilaiyiwang/images/cost.png" alt="诊费">
+<span class="fw">诊费</span>
+<div class="wire wire4"></div>
+    <div class="fees_table">
+        <table class="layui-table" lay-even lay-skin="nob">
+            <colgroup>
+                <col width="450">
+                <col width="150">
+                <col width="450">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>收费清单</th>
+                    <th>原诊费/元</th>
+                    <th>最终诊费/元</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><吴艳博/主任医师/心内科/北京朝阳医院本院></td>
+                    <td class="yuan">500</td>
+                    <td><input type="text" value="500" class="fees_input gai"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <吴艳博/主任医师/心内科/北京朝阳医院本院>
+                    </td>
+<td class="yuan">500</td>
+                    <td>
+                        <input type="text" value="500" class="fees_input gai">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <吴艳博/主任医师/心内科/北京朝阳医院本院>
+                    </td>
+<td class="yuan">500</td>
+                    <td>
+                        <input type="text" value="500" class="fees_input gai">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       基础诊费
+                    </td>
+<td class="yuan">500</td>
+                    <td>
+                        <input type="text" value="200" class="fees_input gai">
+                    </td>
+                </tr>
+            </tbody>
+            <tr>
+                <td style="font-size: 18px; font-weight: bold; height: 50px;">
+                    费用总计
+                </td>
+                <td class="aggregate"></td>
+                <td class="dynamicAggregate"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+            </div>
+</main>
+
+<div class="footer">
+    Copyright © 2018 医来医往(北京)科技有限公司
+</div>
+<div class="nav">
+    <div class="handle">
+        <input type="button" value="返回" class="getBack">
+<input type="button" value="退回" class="sendBack">
+<input type="button" value="审核发布" class="audit">
+    </div>
+
+</div>
+
+</body>
+</html>

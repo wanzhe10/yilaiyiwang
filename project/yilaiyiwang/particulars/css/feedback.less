@@ -1,0 +1,803 @@
+body {
+    background-color: #efefef;
+    min-width: 1200px;
+    // letter-spacing: 1px;
+    // -moz-user-select: none; /*火狐*/
+    // -webkit-user-select: none; /*webkit浏览器*/
+    // -ms-user-select: none; /*IE10*/
+    // -khtml-user-select: none; /*早期浏览器*/
+    // user-select: none;
+}
+body .layui-layer {
+    background: none !important;
+}
+.bgSize {
+    background-size: 44px 50px !important;
+}
+
+
+
+
+main {
+    width: 1200px;
+    margin: 140px auto 0;
+
+    .left {
+        float: left;
+
+        .leftBox {
+            float: left;
+            box-sizing: border-box;
+            width: 145px;
+            background-color: #fff;
+            cursor: pointer;
+                 -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+
+            .hospitalUl,
+            .oneLevelUl {
+                // 医院列表
+                .hospitalItem,
+                .oneLevelItem {
+                    border-left: 6px solid #bdbdbd;
+
+                    .hospitalName,
+                    .oneLevelName {
+                        box-sizing: border-box;
+                        line-height: 50px;
+                        background: #dbdbdb;
+                        padding: 0 4px 0 10px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        font-weight: 600;
+                    }
+                    // 一级科室列表
+                    .sectionUl,
+                    .twoLevelUl {
+                        overflow-x: hidden;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                        display: none;
+                        box-sizing: border-box;
+                        padding: 12px 0;
+                        background: #fff;
+
+                        .sectionItem,
+                        .twoLevelItem {
+                            position: relative;
+                            box-sizing: border-box;
+
+                            > p {
+                                font-size: 14px;
+                                color: #101010;
+                                line-height: 32px;
+                                font-weight: 600;
+                                padding-left: 30px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            // 一级科室 收起时
+                            &:after {
+                                content: ' ';
+                                position: absolute;
+                                top: 9px;
+                                left: 12px;
+                                width: 0;
+                                height: 0;
+                                border: 6px solid transparent;
+                                border-left: 6px solid #516dcf;
+                            }
+                            // 二级科室
+                            .deptUl,
+                            .threeLevelUl {
+                                display: none;
+
+                                .deptItem,
+                                .threeLevelItem {
+                                    box-sizing: border-box;
+                                    margin: 3px 13px 0 0;
+                                    line-height: 30px;
+                                    padding: 0 0 0 30px;
+                                    font-size: 14px;
+                                    color: #666;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                }
+
+                                .deptItem.active,
+                                .threeLevelItem.active {
+                                    background: #516dcf;
+                                    border-radius: 0 0 10px 0;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        // 一级科室 展开时
+                        .active {
+                            &:after {
+                                content: ' ';
+                                position: absolute;
+                                top: 12px;
+                                left: 10px;
+                                width: 0;
+                                height: 0;
+                                border: 6px solid transparent;
+                                border-top: 6px solid #516dcf;
+                            }
+                        }
+                    }
+                }
+                // 医院列表焦点
+                .hospitalItem.active,
+                .oneLevelItem.active {
+                    border-left: 6px solid #3249c2;
+
+                    .hospitalName,
+                    .oneLevelName {
+                        background: #516dcf;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .bgli {
+        background-color: #516dcf;
+        border-radius: 0 0 10px 0;
+    }
+
+    .right {
+        width: 1045px;
+        background-color: #fff;
+        float: right;
+.right_main {
+            width: 985px;
+            margin: 0px auto 0;
+            padding-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .hosp {
+            // height: 50px;
+            // line-height: 50px;
+            position: relative;
+            margin-top:40px;
+            margin-bottom:30px;
+
+            img {
+                margin-top: -5px;
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        // 上传图片
+        .upfileItem {
+            margin: 28px;
+        margin-left: 0px;
+            
+
+            .upfileContent {
+                box-sizing: border-box;
+                width: 985px;
+            margin-top:30px;
+                
+
+                .operateLeft {
+                    position: relative;
+                    box-sizing: border-box;
+                    padding-left: 16px;
+                    font-size: 14px;
+
+                    &:after {
+                        content: ' ';
+                        position: absolute;
+                        top: 4px;
+                        left: 0;
+                        width: 6px;
+                        height: 12px;
+                        background: #eef1fb;
+                    }
+                }
+            }
+
+            .fileContent {
+                height: 100px;
+
+                .fileAdd,
+                .fileItem {
+                    position: relative;
+                    box-sizing: border-box;
+                    margin: 19px 4px 0;
+                    float: left;
+
+                    > a {
+                        display: block;
+                        box-sizing: border-box;
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid #dbdbdb;
+                        border-radius: 10px;
+                        background: url("../../images/addfile.png") no-repeat center;
+                    }
+
+                    .fileInput {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100px;
+                        height: 100px;
+                        margin: 0;
+                        padding: 0;
+                        opacity: 0;
+                        filter:alpha(opacity=0);
+                    }
+
+                    > div {
+                        box-sizing: border-box;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        background-size: contain; 
+                        background-repeat: no-repeat;
+                        border: 1px solid #dbdbdb;
+                        background-color: #f4f4f4;
+                        background-position: center;
+                    }
+
+                    > img {
+                        position: absolute;
+                        top: -6px;
+                        right: -6px;
+                        width: 22px;
+                        height: 22px;
+                        z-index: 3;
+                    }
+
+                    .fileName {
+                        margin-top: 8px;
+                        float: left;
+                        box-sizing: border-box;
+                        padding-right: 20px;
+                        width: 100px;
+                        color: #101010;
+                        font-size: 14px;
+                        font-weight: 600;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .active {
+                        background: url("../../images/remark.png") no-repeat right center;
+                    }
+                }
+            }
+        }
+
+        .wire {
+            width: 855px;
+            height: 2px;
+            background: #efefef;
+            position: absolute;
+            top: 48%;
+            right: -17px;
+        }
+
+        .basicInformation {
+            vertical-align: bottom;
+
+            .bFirst_p {
+                font-size: 18px;
+                font-weight: bold;
+
+                p {
+                    display: inline;
+                }
+            }
+
+            .bSecond_p {
+                padding-left: 20px;
+                font-size: 14px;
+                padding-top: 5px;
+
+                p {
+                    display: inline;
+                    padding-right: 20px;
+                }
+            }
+
+            .bThree_p {
+                padding-top: 5px;
+
+                p {
+                    display: inline;
+                    padding-left: 10px;
+                }
+            }
+
+            .tentative {
+                padding: 20px 0;
+            }
+        }
+
+        .goal {
+            width: 100%;
+
+            p {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+        .goalObj {
+            width: 100%;
+            p {
+                font-size: 14px;
+                line-height: 26px;
+                margin: 0 0 26px 0;
+            }
+        }
+
+        .whiteBlock {
+            width: 6px;
+            height: 12px;
+            background-color: #eef1fb;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .add_img {
+            display: block;
+            float: left;
+            margin-top: 20px;
+            margin-right: 10px;
+
+            p {
+                display: inline-block;
+                position: relative;
+            }
+
+            .small_img {
+                width: 98px;
+                height: 98px;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid #dbdbdb;
+            }
+        }
+
+        .remarkTxt {
+            margin: 10px 0;
+            width: 70px;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .orderInformation {
+            h4 {
+                padding-bottom: 20px;
+
+                span {
+                    padding-right: 10px;
+                }
+            }
+        }
+
+        .timeline {
+            margin-top: 10px;
+
+            .layui-timeline-axis {
+                color: #f6c567;
+                // height: 16px;
+            }
+
+            // .layui-timeline-axis {
+            //     left: -4px;
+            //     top: 4px;
+            // }
+
+            .layui-timeline-item:before {
+                top: 10px;
+            }
+
+            .layui-timeline-item:before,
+            hr {
+                background-color: #f6c567;
+            }
+
+            p,
+            span {
+                font-size: 14px;
+                color: #101010;
+            }
+
+            .fw {
+                font-weight: bold;
+            }
+
+            .pl30 {
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+.operation {
+    width: 100%;
+    height: 70px;
+    background-color: #586acb;
+    line-height: 70px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+
+    .handle {
+        float: right;
+        margin-right: 30px;
+
+        span {
+            font-size: 22px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        span:nth-child(1) {
+            padding-right: 20px;
+        }
+
+        input {
+            border: 1px solid #3249c2;
+            background-color: #fff;
+            font-size: 14px;
+            border-radius: 10px;
+            height: 40px;
+            padding: 0 5px;
+        }
+
+        .getBack {
+            width: 120px;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .editClinicalFeedback {
+            width: 200px;
+            background-color: #f6c567;
+            cursor: pointer;
+        }
+    }
+}
+/* ***********弹层*************** */
+.rejectionLayer {
+    margin: 140px auto;
+    width: 1060px;
+    height: 480px;
+    background-color: #f4f4f4;
+    position: relative;
+    border-radius: 10px;
+}
+
+.re_layer {
+    display: none;
+}
+
+.feed_SM,
+.feed_TS {
+    width: 200px;
+    height: 40px;
+    background-color: #516dcf;
+    border: 1px solid #3249c2;
+    // margin-left: 430px;
+    margin-top: 30px;
+    border-radius: 10px;
+    color: #fff;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.feed_TS {
+    margin-left: 325px;
+}
+
+.feed_SM {
+    margin-left: 10px;
+}
+
+.ip {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #516dcf;
+    text-align: center;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #1937bc;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ip:hover {
+    background-color: #516dcf;
+    color: #fff;
+}
+
+.rejectionLayer .suggest {
+    margin-left: 80px;
+    margin-right: 10px;
+}
+
+.layui-layer-setwin .layui-layer-close2 {
+    background: none;
+}
+
+.rejectionLayer_top {
+    height: 60px;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.rejectionLayer_top span {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 42px;
+}
+
+.rejectionLayer_buttom {
+    width: 1040px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+}
+
+.background {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+.rejectionLayer_buttom textarea {
+    width: 1036px;
+    height: 300px;
+    border-radius: 10px;
+    resize: none;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.closeBtn {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: -50px;
+    right: -56px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 400;
+    > img {
+        float: left;
+        margin: 5px 10px 0 0;
+    }
+    span {
+        float: left;
+    }
+}
+
+.close-ico {
+    position: absolute;
+    top: 0;
+    left: -32px;
+    color: #fff;
+}
+/* 失败图标  成功图标  */
+.failed,
+.succeed {
+    display: none;
+    z-index: 999;
+}
+// 查看大图
+.bigImgContainer {
+    display: none;
+    position: relative;
+    width: 1167px;
+    height: 700px;
+    // background: transparent !important;
+    background: rgba(0, 0, 0, 0.3);
+    .bigImgBox {
+        float: left;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        width: 665px;
+        height: 700px;
+        background-color: #f4f4f4;
+        .bigImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            float: left;
+            width: 665px;
+            height: 700px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+
+    .bigImgRightBox {
+        float: right;
+        width: 342px;
+        margin: 0 130px 0 30px;
+
+        .fileNameBox {
+            position: relative;
+            box-sizing: border-box;
+            width: 342px;
+            height: 102px;
+            padding: 20px;
+            background: rgba(90,90,90,.9);
+            border-radius: 10px;
+
+            .fileTitle {
+                font-size: 16px;
+                line-height: 20px;
+                color: #f6c567;
+
+                > span {
+                    display: block;
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    background: #f6c567;
+                    border-radius: 10px 0 0 0;
+                    margin-right: 10px;
+                }
+            }
+
+            .fileName {
+                font-size: 14px;
+                color: #fff;
+                font-weight: 600;
+                width: 100%;
+                margin: 20px 20px 0 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+             .downlodeFile{
+		        display: none;
+                position: absolute;
+                top:18px;
+                left:220px;
+                a{
+                    color:#f6c567;
+                }
+            }
+        }
+
+        .fileDescBox {
+            box-sizing: border-box;
+            width: 342px;
+            height: 420px;
+            padding: 20px;
+            margin: 10px 0 0;
+            border-radius: 10px;
+            background: rgba(90,90,90,.9);
+
+            .descTitle {
+                box-sizing: border-box;
+                font-size: 16px;
+                line-height: 20px;
+                color: #f6c567;
+                background: url("../../images/remark_active.png") no-repeat left center;
+                padding-left: 30px;
+            }
+
+            .descText {
+                box-sizing: border-box;
+                margin-top: 12px;
+                width: 100%;
+                height: 360px;
+                line-height: 26px;
+                background: transparent;
+                padding: 0 5px;
+                color: #fff;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .switchBox {
+            margin-top: 25px;
+
+            > a {
+                display: block;
+                float: left;
+                display: block;
+                box-sizing: border-box;
+                width: 166px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                color: #fff;
+                background: #101010;
+                font-size: 14px;
+                font-weight: 600;
+                border: 1px solid #666;
+                border-radius: 10px;
+            }
+
+            .next {
+                float: right;
+            }
+        }
+    }
+
+    .closeBtnImg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-sizing: border-box;
+        color: #fff;
+        width: 100px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 18px;
+        padding-left: 45px;
+        background: url("../../images/close.png") no-repeat 15px center;
+    }
+}
+
+.operateBox {
+    display: none;
+    box-sizing: border-box;
+    width: 300px;
+    height: 80px;
+    background: #fff;
+    border-radius: 10px;
+    // padding: 60px 0 0;
+    > p {
+        text-align: center;
+        font-size: 18px;
+        color: #101010;
+        line-height: 80px;
+        font-weight: bold;
+    }
+  
+}
+ .schedule_modules{
+            span{
+                padding:0 10px;
+            }
+        }
