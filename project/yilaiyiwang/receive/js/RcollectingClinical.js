@@ -659,7 +659,7 @@ $(function() {
         window.location = '/yilaiyiwang/particulars/MTD.html';
     })
 
-    //  接收按钮事件 receive
+        //  接收按钮事件 receive
     $('.receive').click(function() {
         if (data.orderFormBean.orderTypes == 0) {
             var _$ = layui.jquery;
@@ -682,28 +682,40 @@ $(function() {
                 closeBtn: 0,
                 skin: 'noBackground',
             })
-            var startMinute = 0; // 开始总分钟数
-            var endMinute = 0; // 结束总分钟数
-            var startHour = 0; // 开始小时数
-            var endHour = 0; // 结束小时数
-            var _html = '';
-            for (var i = 0; i < 96; i++) {
-                startMinute = i * 15;
-                endMinute = (i + 1) * 15;
-                startHour = parseInt(startMinute / 60);
-                endHour = parseInt(endMinute / 60);
-                var startM = startMinute %= 60; // 计算后的开始分钟数
-                var endM = endMinute %= 60; // 计算后的开始分钟数
-                if (endHour == 24) {
-                    _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-                } else {
-                    _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-                }
-            }
-            $('.rightContent').html(_html);
+              for (var i = 0; i < dateTempList.length; i++) {
+                  if (dateStr == dateTempList[i].date) {
+                      for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                          $('#timeUl > li').eq(j).addClass('active');
+                      }
+                  }
+              }
+           
         }
 
-    })
+    });
+
+       var startMinute = 0; // 开始总分钟数
+       var endMinute = 0; // 结束总分钟数
+       var startHour = 0; // 开始小时数
+       var endHour = 0; // 结束小时数
+       var _html = '';
+       for (var i = 0; i < 96; i++) {
+           startMinute = i * 15;
+           endMinute = (i + 1) * 15;
+           startHour = parseInt(startMinute / 60);
+           endHour = parseInt(endMinute / 60);
+           var startM = startMinute %= 60; // 计算后的开始分钟数
+           var endM = endMinute %= 60; // 计算后的开始分钟数
+           if (endHour == 24) {
+               _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+           } else {
+               _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+           }
+       }
+       $('.rightContent').html(_html);
+
+
+
     $('.submitBox .noBtn').click(function() {
         layer.closeAll();
         $('.submitBox').hide();
@@ -781,12 +793,60 @@ $(function() {
             "endIndex": endIndex - 1,
         })
     }
+
+    // var markJson = {};
     var myDate = new Date();
     var flag = true;
     var startIndex = 0;
     var endIndex = 0;
     var dateStr = myDate.getFullYear() + '-' + double(myDate.getMonth() + 1) + '-' + double(myDate.getDate());
+    var currentMonth = myDate.getMonth() + 1;
+    //  MouthSection(currentMonth);
+
+    //  function MouthSection(month) {
+    //      var _date = new Date();
+    //      var startDate = _date.getFullYear() + '-' + double(month) + '-01 00:00:00';
+    //      _date.setMonth(month)
+    //      _date.setDate(0);
+    //      var endDate = _date.getFullYear() + '-' + double(month) + '-' + _date.getDate() + ' 23:59:59';
+    //      $.ajax({
+    //          type: 'POST',
+    //          url: IP + 'order/doctorSchedulingList',
+    //          dataType: 'json',
+    //          data: {
+    //              "startDate": startDate,
+    //              "endDate": endDate
+    //          },
+    //          xhrFields: {
+    //              withCredentials: true
+    //          },
+    //          async: false,
+    //          crossDomain: true,
+    //          success: function (data) {
+    //              console.log(data)
+    //              if (data.status == 200) {
+    //                  var tempArr = data.dateList;
+    //                  for (var i = 0; i < tempArr.length; i++) {
+    //                      markJson[tempArr[i]] = '';
+    //                  }
+    //              } else if (data.status == 250) {
+    //                  // 未登录操作
+    //                  window.location = '/yilaiyiwang/login/login.html';
+    //              } else {
+    //                  // 其他操作
+    //              }
+    //          },
+    //          error: function (err) {
+    //              console.log(err);
+    //          },
+    //      })
+    //  }
+    //   doctorScheduling(dateStr + ' 00:00:00', dateStr + ' 23:59:00')
     // 渲染日历控件
+    var markJson = {};
+    for (var i = 0; i < dateTempList.length;i++) {
+        markJson[dateTempList[i].date] = '';
+    }
     layui.use('laydate', function() {
         var laydate = layui.laydate;
         //执行一个laydate实例
@@ -795,7 +855,14 @@ $(function() {
             position: 'static',
             showBottom: false,
             value: dateStr,
+            mark: markJson,
             change: function(value, date) { //监听日期被切换
+                  $('.workUl').html('');
+                  doctorScheduling(value + ' 00:00:00', value + ' 23:59:00');
+                  if (currentMonth != date.month) {
+                      currentMonth = date.month;
+                      MouthSection(date.month);
+                  }
                 $('#timeUl > li').removeClass('active');
                 dateStr = value;
                 for (var i = 0; i < dateTempList.length; i++) {
@@ -822,6 +889,56 @@ $(function() {
             }
         });
     });
+
+    /* 医生排期悬浮框 */
+        function doctorScheduling(startDate, endDate) {
+            $.ajax({
+                type: 'POST',
+                url: IP + 'order/doctorScheduling',
+                dataType: 'json',
+                data: {
+                    "startDate": startDate,
+                    "endDate": endDate,
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                global: false,
+                success: function (data) {
+                    console.log(data)
+                    if (data.status == 200) {
+                    //     var tempArr = data.orderFormList;
+                   
+                    // //     }
+                    //     //  dateStr = value;
+                    //      for (var i = 0; i < tempArr.length; i++) {
+                          
+                    //      }
+
+                        //  for (var i = 0; i < dateTempList.length; i++) {
+                        //      if (value == dateTempList[i].date) {
+                        //          for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                        //              $('#timeUl > li').eq(j).addClass('active');
+                        //          }
+                        //      }
+                        //  }
+                        /* 日历 */
+
+                    } else if (data.status == 250) {
+                        // 未登录操作
+                        window.location = '/yilaiyiwang/login/login.html';
+                    } else if (data.status == 205) {
+                        $('.workUl').html('');
+                    } else {
+                        // 其他操作
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                },
+            })
+        }
     // 分钟选择事件、
  $('#timeUl').delegate('li', 'click', function () {
      if (flag) {

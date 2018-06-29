@@ -67,30 +67,7 @@ $(function () {
                                     }
                                 }
                          });
-                        //  获取新消息
-                            $.ajax({
-                                type: 'GET',
-                                url: IP + 'news/countNewNumber',
-                                dataType: 'json',
-                                xhrFields: {
-                                    withCredentials: true
-                                },
-                                crossDomain: true,
-                                success: function (data) {
-                                    console.log(data)
-                                    if (data.status == 200) {
-                                        if (data.count == '1') {
-                                            $('.news').addClass('newNews');
-                                        } else {
-                                            $('.news').removeClass('newNews');
-                                        }
-                                    }
-                                },
-                                error: function (err) {
-                                    console.log(err);
-
-                                },
-                            });
+                     
 
                         layer.close(index);
                         localStorage.setItem('rolesName', data.rolesName);

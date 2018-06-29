@@ -1255,6 +1255,7 @@ $(function() {
 
     // 图文会按钮、
        $('.graphicGroup').click(function () {
+           console.log(noDocDeptId)
            /* 判断信息是否填写完整 */
            if ($('#username').val() == '' || $('#idCard').val() == '' || $('#phone').val() == '' || $('#address').val() == '' || $('#age').val() + $('.choiceAge').val() == '' || $('#high').val() == '' || $('#weight').val() == '' || $('.sex > a.active').html() == '' || $('#createCase_textDiagnose').val() == '' || $('#createCase_textGola').val() == '' || fileAllArr.length <= '0') {
                var _$ = layui.jquery;
@@ -1289,7 +1290,11 @@ $(function() {
 
                },2000);
 
-           } else {
+           } 
+        //    else if (favoriteArr.length = '0' && noDocDeptId == '') {
+        //         layer.msg('请选择医生');
+        //    } 
+           else {
                //图文会诊确认弹窗
                var _$ = layui.jquery;
                layer.open({
@@ -1437,6 +1442,8 @@ $(function() {
 
             }, 2000);
 
+        } else if (favoriteArr.length = '0' && noDocDeptId == '') {
+            layer.msg('请选择医生')
         } else {
              var _$ = layui.jquery;
             layer.open({

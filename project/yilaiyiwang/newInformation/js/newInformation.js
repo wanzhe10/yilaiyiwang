@@ -38,30 +38,40 @@ $(function () {
                             var _year = timeStr.split('-')[0];
                             var _month = timeStr.split('-')[1];
                             var _day = timeStr.split('-')[2];
-
-                            _html += '<li name="'+tempArr[i].id+'" remarks="'+tempArr[i].remarks+'" class="clearfix">\
+                            if (tempArr[i].types == 002) {
+                                _html += '<li aboutUserId="'+tempArr[i].aboutUserId+'" name="' + tempArr[i].id + '" remarks="' + tempArr[i].remarks + '" class="clearfix">\
                            <p class="newNews">';
+                            }else{
+                                _html += '<li aboutUserId="" name="' + tempArr[i].id + '" remarks="' + tempArr[i].remarks + '" class="clearfix">\
+                           <p class="newNews">';
+                            }
+                            
                             if (tempArr[i].remarks == 0) {
                                 _html += '<span>新</span>';
                             }
                             _html += '</p>\
                            <p class="newsType">';
-                            // 0系统消息 1上课提醒 2新课预定
-                            if (tempArr[i].types == 0) {
-                                _html += '系统消息';
-                            } else if (tempArr[i].types == 1) {
-                                _html += '上课提醒';
-                            } else if (tempArr[i].types == 2) {
-                                _html += '新课预定';
+                            // 0系统消息-审核已通过 1上课提醒 2新课预定
+                            if (tempArr[i].types == 001) {
+                                _html += '系统消息</p><p class="newsTitle">' + tempArr[i].title + '</p>';
+                            } else if (tempArr[i].types == 002) {
+                                _html += '系统消息</p><p class="newsTitle"><a href="javascript:;">“' + tempArr[i].title + '”</a>请求认证为您的医院医生，点击查看审核</p>';
+                            } else if (tempArr[i].types == 101) {
+                                _html += '上课提醒</p><p class="newsTitle">' + tempArr[i].title + '</p>';
+                            } else if (tempArr[i].types == 201) {
+                                _html += '新课预定</p><p class="newsTitle">' + tempArr[i].title + '</p>';
                             }
-                            _html += '</p>\
-                           <p class="newsTitle">' + tempArr[i].title +'</p>'
                             if (year == _year && month == _month && day == _day) {
                                 _html += '<p class="time">今天' + time + '</p>'
                             } else {
                                 _html += '<p class="time">' + tempArr[i].createDate + '</p>'
                             }
-                            _html += '<div>' + tempArr[i].details + '</div></li>'
+                            if (tempArr[i].types == 002) {
+                                 _html += '<div></div></li>'
+                            }else {
+                                 _html += '<div>' + tempArr[i].details + '</div></li>'
+                            }
+                           
                         }
                     }
                     $('.ulList').html(_html);
@@ -115,13 +125,19 @@ $(function () {
                     console.log(obj)
                     obj.attr('remarks', '1');
                     obj.find('.newNews').html('');
-                  
+                   
                 },
                 error: function (err) {
                     console.log(err);
                 },
             })
         }
+         // 保存待审核医生id
+         if ($(this).attr("aboutUserId") != '') {
+              localStorage.setItem("lookDoctorId", $(this).attr('aboutUserId'));
+              window.location = "/yilaiyiwang/managementCenter/managementCenter.html";
+         }
+        
     });
         // $('.ulList').find('li').each(function () {
         //    if($(this).attr('remarks') == '1'){

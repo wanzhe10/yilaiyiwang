@@ -18,6 +18,15 @@ $(function () {
             $('.doctorTitleList').css('height', $('body,html').height() - $('.doctorTitleList').offset().top - 70)
         }
     })
+
+    // 判断是否是从新消息过来的
+    if (localStorage.getItem('lookDoctorId')) {
+        var id = localStorage.getItem('lookDoctorId');
+        // doctorIdGetInfo(id);
+         $('.navContent > a').eq(2).addClass('active').siblings('a').removeClass('active');
+         $('.mainContent > div').hide().eq(2).show();
+         localStorage.removeItem('lookDoctorId');
+    }
     //  查询医院信息
     var hospitalId = '';
     var oldHospitalName = '';
@@ -479,18 +488,18 @@ $(function () {
                     _html += '</ul></li>';
                 }
                 $('.oneLevelUl').html(_html);
+                // 有无子集 处理
                 var objArr = $('.threeLevelUl');
                 for (var i = 0; i < objArr.length; i++) {
                     if (objArr.eq(i).find('.threeLevelItem').length == 0) {
                         objArr.eq(i).parents('.twoLevelItem').addClass('noFlag');
-                    } else {
-                        if (objArr.eq(i).find('.threeLevelItem').attr('stateflag') == 0) {
-                            objArr.eq(i).siblings('.twoLevelName').addClass('redFlag');
-                            objArr.eq(i).parents('.twoLevelUl').siblings('.oneLevelName').addClass('redFlag');
-                        }
                     }
-                    
                 }
+                // 未审核小红点 处理
+               for(var i = 0;i < $('.threeLevelItem[stateFlag=0]').length;i++){
+                   $('.threeLevelItem[stateFlag=0]').parents('.threeLevelUl').siblings('.twoLevelName').addClass('redFlag');
+                   $('.threeLevelItem[stateFlag=0]').parents('.twoLevelUl').siblings('.oneLevelName').addClass('redFlag');
+               }
 
             } else if (data.status == 250) {
                 // 未登录操作
@@ -695,6 +704,16 @@ $(function () {
                 } else {
                     // 其他操作
                 }
+                 if (data.credentialsImage != '') {
+                     $('#olf').html('signatureImage.jpg')
+                 } else {
+                     $('#olf').html('')
+                 }
+                 if (data.signatureImage != '') {
+                     $('#uhs').html('credentialsImage.jpg')
+                 } else {
+                     $('#uhs').html('')
+                 }
             },
             error: function (err) {
                 console.log(err);
@@ -1058,7 +1077,7 @@ $(function () {
                     });
                     setTimeout(function () {
                         $('.successBox').hide();
-                    }, 2000)
+                    }, 2000);
                 } else if (data.status == 250) {
                     // 未登录操作
                     window.location = '/yilaiyiwang/login/login.html';
@@ -1313,18 +1332,20 @@ $(function () {
     $('.expertTypeTbody').delegate('.modifyBtn', 'click', function () {
         operationIndex = $(this).parents('tr').index();
         if ($(this).html() == '修改') {
-            oldName = $(this).html('取消').parents('tr').find('input.nameInput').val();
-            oldMoney = $(this).html('取消').parents('tr').find('input.imgPicInput').val();
-            oldMoneyVideo = $(this).html('取消').parents('tr').find('input.videoPicInput').val();
-            newName = $(this).html('取消').parents('tr').find('input.nameInput').val();
-            newMoney = $(this).html('取消').parents('tr').find('input.imgPicInput').val();
-            newMoneyVideo = $(this).html('取消').parents('tr').find('input.videoPicInput').val();
+            oldName = $(this).parents('tr').find('input.nameInput').val();
+            oldMoney = $(this).parents('tr').find('input.imgPicInput').val();
+            oldMoneyVideo = $(this).parents('tr').find('input.videoPicInput').val();
+            newName = $(this).parents('tr').find('input.nameInput').val();
+            newMoney = $(this).parents('tr').find('input.imgPicInput').val();
+            newMoneyVideo = $(this).parents('tr').find('input.videoPicInput').val();
             $(this).html('取消').parents('tr').find('input').addClass('revisability').removeAttr('readonly');
+            $(this).parents('tr').siblings('tr').find('input').removeClass('revisability').attr('readonly', 'readonly');
+            $(this).parents('tr').siblings('tr').find('.modifyBtn').html('修改');
         } else {
             $(this).html('修改').parents('tr').find('input').removeClass('revisability').attr('readonly', 'readonly');
-            $(this).html('修改').parents('tr').find('input.nameInput').val(oldName);
-            $(this).html('修改').parents('tr').find('input.imgPicInput').val(oldMoney);
-            $(this).html('修改').parents('tr').find('input.videoPicInput').val(oldMoneyVideo);
+            $(this).parents('tr').find('input.nameInput').val(oldName);
+            $(this).parents('tr').find('input.imgPicInput').val(oldMoney);
+            $(this).parents('tr').find('input.videoPicInput').val(oldMoneyVideo);
         }
     })
 

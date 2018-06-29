@@ -649,7 +649,8 @@ $(function () {
     })
 
     $('.yesBtn').click(function () {
-
+         layer.closeAll();
+  $('.selectTimeContainer').hide();
         console.log(dateTempList)
         var dateList = []; // 选择的时间数据
         for (var i = 0; i < dateTempList.length; i++) {
@@ -663,9 +664,14 @@ $(function () {
                     'startDate': dateTempList[i].date + ' ' + $('#timeUl > li').eq(dateTempList[i].endIndex).html() + ':00',
                     'endDate': dateTempList[i].date + ' ' + $('#timeUl > li').eq(dateTempList[i].startIndex).attr('enddate') + ':00'
                 });
-            }
+            }  
+          
         }
-        console.log(dateList)
+         console.log(dateList)
+      
+
+           
+   
         $.ajax({
             type: 'POST',
             url: IP + 'order/updateSchedulingTime',
@@ -681,9 +687,22 @@ $(function () {
             success: function (data) {
                 console.log(data)
                 if (data.status == 200) {
-                    // 成功操作
+            var _html = ''
+            for (var i = 0; i < dateList.length; i++) {
+                console.log(dateList[i].startDate)
+                _html += '<p>\
+            <span class="">从&nbsp;&nbsp;' + dateList[i].startDate + '</span> 到&nbsp;&nbsp;\
+            <span class="">' + dateList[i].endDate + '</span>\
+                                </p>'
+
+            }
+            $('.schedule_modules').html(_html);
+
                     layer.closeAll();
+                     /* 会诊排期 */
                     $('.selectTimeContainer').hide();
+                  
+
                 } else if (data.status == 250) {
                     // 未登录操作
                     window.location = '/yilaiyiwang/login/login.html';

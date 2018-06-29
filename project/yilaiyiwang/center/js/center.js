@@ -31,6 +31,7 @@ $(function() {
         },
         crossDomain: true,
         success: function(data) {
+            console.log(data);
             if (data.status == 200) {
                 oldTelephone = data.telephone;
                 oldBeGoodAt = data.beGoodAt;
@@ -48,6 +49,8 @@ $(function() {
                 $('.medicalFeesVideo').val(data.medicalFeesVideo);
                 $('.text-adaption').val(data.beGoodAt);
                 var caseTypeList = data.caseTypeList;
+                //  $('#olf').html(data.credentialsImage.substr(data.credentialsImage.lastIndexOf('/'), data.credentialsImage.length));
+                //  $('#uhs').html(data.signatureImage.substr(data.signatureImage.lastIndexOf('/'), data.signatureImage.length));
                 var _html = '';
                 console.log(caseTypeList)
 
@@ -70,6 +73,17 @@ $(function() {
 
                 });
                 $('.enroll_three').append(_html);
+                if (data.credentialsImage != '') {
+                  $('#olf').html('signatureImage.jpg')
+                } else {
+                    $('#olf').html('')
+                }
+                 if (data.signatureImage !='') {
+                    $('#uhs').html('credentialsImage.jpg')
+                } else {
+                    $('#uhs').html('')
+                }
+                
 
 
             } else if (data.status == 250) {

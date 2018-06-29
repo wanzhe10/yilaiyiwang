@@ -656,41 +656,41 @@ $('.bigImgBox').on('mouseleave', function () {
             <span class="endDate">' + endTime + '</span>\
                                 </p>')
                 $('.selectTimeContainer').hide();
-        // $.ajax({
-        //     type: 'POST',
-        //     url: IP + 'order/receiveScheduling',
-        //     dataType: 'json',
-        //     data: {
-        //         "orderId": data.orderFormBean.id,
-        //         "startTime": startTime,
-        //         "endTime": endTime,
-        //         "type": '0',
-        //     },
-        //     xhrFields: {
-        //         withCredentials: true
-        //     },
-        //     crossDomain: true,
-        //     success: function(data) {
-        //         console.log(data)
-        //         if (data.status == 200) {
-        //             // 成功操作
-        //             layer.closeAll();
-        //             $('.schedule_modules').html('<p>\
-        //     <span class="startDate">从&nbsp;&nbsp;' + startTime + '</span> 到&nbsp;&nbsp;\
-        //     <span class="endDate">' + endTime + '</span>\
-        //                         </p>')
-        //             $('.selectTimeContainer').hide();
-        //         } else if (data.status == 250) {
-        //             // 未登录操作
-        //             window.location = '/yilaiyiwang/login/login.html';
-        //         } else {
-        //             // 其他操作
-        //         }
-        //     },
-        //     error: function(err) {
-        //         console.log(err);
-        //     },
-        // })
+        $.ajax({
+            type: 'POST',
+            url: IP + 'order/receiveScheduling',
+            dataType: 'json',
+            data: {
+                "orderId": data.orderFormBean.id,
+                "startTime": startTime,
+                "endTime": endTime,
+                "type": '0',
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function(data) {
+                console.log(data)
+                if (data.status == 200) {
+                    // 成功操作
+                    layer.closeAll();
+                    $('.schedule_modules').html('<p>\
+            <span class="startDate">从&nbsp;&nbsp;' + startTime + '</span> 到&nbsp;&nbsp;\
+            <span class="endDate">' + endTime + '</span>\
+                                </p>')
+                    $('.selectTimeContainer').hide();
+                } else if (data.status == 250) {
+                    // 未登录操作
+                    window.location = '/yilaiyiwang/login/login.html';
+                } else {
+                    // 其他操作
+                }
+            },
+            error: function(err) {
+                console.log(err);
+            },
+        })
     });
 
     /* 返回按钮 */

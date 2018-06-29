@@ -474,13 +474,13 @@ $('.bigImgBox').on('mouseleave', function () {
             closeBtn: 0,
             skin: 'noBackground',
         });
-          for (var i = 0; i < dateTempList.length; i++) {
-              if (dateStr == dateTempList[i].date) {
-                  for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
-                      $('#timeUl > li').eq(j).addClass('active');
-                  }
-              }
-          }
+           for (var i = 0; i < dateTempList.length; i++) {
+               if (dateStr == dateTempList[i].date) {
+                   for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                       $('#timeUl > li').eq(j).addClass('active');
+                   }
+               }
+           }
        
     });
 
@@ -509,6 +509,10 @@ $('.bigImgBox').on('mouseleave', function () {
     var endIndex = 0;
     var dateStr = myDate.getFullYear() + '-' + double(myDate.getMonth() + 1) + '-' + double(myDate.getDate());
     // 渲染日历控件
+      var markJson = {};
+      for (var i = 0; i < dateTempList.length; i++) {
+          markJson[dateTempList[i].date] = '';
+      }
     layui.use('laydate', function() {
         var laydate = layui.laydate;
         //执行一个laydate实例
@@ -517,6 +521,7 @@ $('.bigImgBox').on('mouseleave', function () {
             position: 'static',
             showBottom: false,
             value: dateStr,
+            mark: markJson,
             change: function(value, date) { //监听日期被切换
                 $('#timeUl > li').removeClass('active');
                 dateStr = value;
@@ -808,6 +813,16 @@ $('.bigImgBox').on('mouseleave', function () {
         $('.submitBox').hide();
     });
     $('.submitBox .yesBtn').click(function() {
+         var startTime = '';
+         var endTime = '';
+         if (dateTempList[0].startIndex <= dateTempList[0].endIndex) {
+             startTime = dateTempList[0].date + ' ' + $('#timeUl > li').eq(dateTempList[0].startIndex).html() + ':00';
+             endTime = dateTempList[0].date + ' ' + $('#timeUl>li').eq(dateTempList[0].endIndex).attr('enddate') + ':00';
+         } else {
+             startTime = dateTempList[0].date + ' ' + $('#timeUl > li').eq(dateTempList[0].endIndex).html() + ':00';
+             endTime = dateTempList[0].date + ' ' + $('#timeUl > li').eq(dateTempList[0].startIndex).attr('enddate') + ':00';
+         }
+           console.log(startTime, endTime);
         if (data.orderFormBean.orderTypes == 0) {
             $.ajax({
                 type: 'POST',
@@ -819,6 +834,8 @@ $('.bigImgBox').on('mouseleave', function () {
                     "type": '0',
                     "statusId": data.orderFormBean.statesId,
                     "orderTypes": data.orderFormBean.orderTypes,
+                      "startTime": startTime,
+                      "endTime": endTime,
                 },
                 xhrFields: {
                     withCredentials: true
@@ -866,6 +883,8 @@ $('.bigImgBox').on('mouseleave', function () {
                     "type": '0',
                     "statusId": data.orderFormBean.statesId,
                     "orderTypes": data.orderFormBean.orderTypes,
+                      "startTime": startTime,
+                      "endTime": endTime,
                 },
                 xhrFields: {
                     withCredentials: true
@@ -875,7 +894,7 @@ $('.bigImgBox').on('mouseleave', function () {
                     console.log(data)
                     if (data.status == 200) {
                         $('.submitBox').hide();
-                        var $ = layui.jquery;
+                        var _$ = layui.jquery;
                         layer.open({
                             type: 1,
                             title: '',
@@ -883,7 +902,7 @@ $('.bigImgBox').on('mouseleave', function () {
                             closeBtn: false,
                             shade: [0.7, '#000000'],
                             shadeClose: false,
-                            content: $('.accept'),
+                            content: _$('.accept'),
                             time: 2000,
                         });
                         setTimeout(function() {
