@@ -708,26 +708,33 @@ main {
 }
 
 
-/* 日期选择 */
+// 日期选择
 .selectTimeContainer {
     display: none;
     width: 1060px;
-    height: 680px;
+    height: 630px;
+    // position: relative;
 
     .closeBtnTime {
-        height: 50px;
+        // height: 50px;
+        display: inline-block;
         text-align: right;
         font-size: 18px;
         color: #ffffff;
         line-height: 32px;
+        right: 0;
+        position: absolute;
+        top: -35px;
 
-        .close-ico {
+        img {
             float: right;
-            font-size: 32px;
+            margin: 3px 5px 0 0;
+            cursor: pointer;
         }
 
         span {
             float: right;
+            cursor: pointer;
         }
     }
 

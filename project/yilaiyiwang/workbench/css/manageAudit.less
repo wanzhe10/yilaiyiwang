@@ -510,119 +510,126 @@ input {
 }
 // 日期选择
 .selectTimeContainer {
-	display: none;
-	width: 1060px;
-	height: 680px;
+    display: none;
+    width: 1060px;
+    height: 630px;
+    // position: relative;
 
-	.closeBtnTime {
-		height: 50px;
-		text-align: right;
-		font-size: 18px;
-		color: #ffffff;
-		line-height: 32px;
+    .closeBtnTime {
+        // height: 50px;
+        display: inline-block;
+        text-align: right;
+        font-size: 18px;
+        color: #ffffff;
+        line-height: 32px;
+        right: 0;
+        position: absolute;
+        top: -35px;
 
-		img {
-			float: right;
-			margin: 3px 5px 0 0;
-		}
+        img {
+            float: right;
+            margin: 3px 5px 0 0;
+            cursor: pointer;
+        }
 
-		span {
-			float: right;
-		}
-	}
+        span {
+            float: right;
+            cursor: pointer;
+        }
+    }
 
-	.selectTimeContent {
-		box-sizing: border-box;
-		background: #f4f4f4;
-		height: 630px;
-		width: 1060px;
-		border-radius: 10px;
-		padding: 10px;
-		// 时间选择左侧部分
-		.leftContent {
-			float: left;
-			width: 290px;
-			height: 500px;
-			margin-right: 10px;
-			background: #ffffff;
-			overflow: hidden;
+    .selectTimeContent {
+        box-sizing: border-box;
+        background: #f4f4f4;
+        height: 630px;
+        width: 1060px;
+        border-radius: 10px;
+        padding: 10px;
+        // 时间选择左侧部分
+        .leftContent {
+            float: left;
+            width: 290px;
+            height: 500px;
+            margin-right: 10px;
+            background: #ffffff;
+            overflow: hidden;
 
-			> h3 {
-				margin: 15px 0 0 20px;
-				font-weight: 600;
-				font-size: 18px;
-				color: #1937bc;
+            > h3 {
+                margin: 15px 0 0 20px;
+                font-weight: 600;
+                font-size: 18px;
+                color: #1937bc;
 
-				> span {
-					display: block;
-					font-size: 14px;
-				}
-			}
+                > span {
+                    display: block;
+                    font-size: 14px;
+                }
+            }
 
-			.timeBox {
-				margin: 0 0 0 10px;
+            .timeBox {
+                margin: 0 0 0 10px;
 
-				.layui-laydate {
-					border: none;
-					box-shadow: none;
-				}
-			}
+                .layui-laydate {
+                    border: none;
+                    box-shadow: none;
+                }
+            }
 
-			> p {
-				font-size: 14px;
-				color: #101010;
-				line-height: 24px;
-				margin: 25px 20px 0;
-			}
-		}
-		// 时间选择右侧部分
-		.rightContent {
-			float: right;
-			box-sizing: border-box;
-			width: 740px;
-			height: 500px;
-			background: #fff;
-			padding: 10px;
+            > p {
+                font-size: 14px;
+                color: #101010;
+                line-height: 24px;
+                margin: 25px 20px 0;
+            }
+        }
+        // 时间选择右侧部分
+        .rightContent {
+            float: right;
+            box-sizing: border-box;
+            width: 740px;
+            height: 500px;
+            background: #fff;
+            padding: 10px;
 
-			> li {
-				float: left;
-				display: block;
-				box-sizing: border-box;
-				width: 60px;
-				height: 60px;
-				border: 1px solid #f4f4f4;
-				text-align: center;
-				line-height: 60px;
-				font-size: 14px;
-				color: #101010;
-			}
+            > li {
+                float: left;
+                display: block;
+                box-sizing: border-box;
+                width: 60px;
+                height: 60px;
+                border: 1px solid #f4f4f4;
+                text-align: center;
+                line-height: 60px;
+                font-size: 14px;
+                color: #101010;
+            }
 
-			.active {
-				background: #475bc8;
-				color: #fff;
-			}
-		}
+            .active {
+                background: #475bc8;
+                color: #fff;
+            }
+        }
 
-		.btnBox {
-			float: left;
-			width: 100%;
-			// 确定按钮
-			.yesBtn {
-				display: block;
-				margin: 50px auto 0;
-				box-sizing: border-box;
-				width: 200px;
-				height: 40px;
-				border: 1px solid #3249c2;
-				background: #516dcf;
-				color: #ffffff;
-				font-size: 14px;
-				text-align: center;
-				line-height: 40px;
-				border-radius: 10px;
-			}
-		}
-	}
+        .btnBox {
+            float: left;
+            width: 100%;
+            // 确定按钮
+            .yesBtn {
+                display: block;
+                margin: 50px auto 0;
+                box-sizing: border-box;
+                width: 200px;
+                height: 40px;
+                border: 1px solid #3249c2;
+                background: #516dcf;
+                color: #ffffff;
+                font-size: 14px;
+                text-align: center;
+                line-height: 40px;
+                border-radius: 10px;
+            }
+        }
+    }
 }
 
 

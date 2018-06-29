@@ -307,7 +307,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.promptText'),
             });
@@ -417,7 +417,7 @@ $(function() {
               area: ['500px', '200px'],
               closeBtn: false,
               shade: [0.1, '#000000'],
-              shadeClose: true,
+              shadeClose: false,
               content: _$('.submitBoxPic'),
           });
 
@@ -573,7 +573,7 @@ $(function() {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.submitBox'),
         });
 
@@ -644,7 +644,7 @@ $(function() {
                         area: ['300px', '80px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.MDTText'),
                     });
@@ -715,7 +715,7 @@ $(function() {
                               area: ['300px', '80px'],
                               closeBtn: false,
                               shade: [0.1, '#000000'],
-                              shadeClose: true,
+                              shadeClose: false,
                               time: 2000,
                               content: _$('.MDTText'),
                           });

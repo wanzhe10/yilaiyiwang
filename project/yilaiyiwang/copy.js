@@ -668,7 +668,7 @@ obj = {
             area: ['1067px', '600px'],
             closeBtn: false,
             shade: [0.7, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: $('.bigImgContainer'),
             skin: 'noBackground',
         });

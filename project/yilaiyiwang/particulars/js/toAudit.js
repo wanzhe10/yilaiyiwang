@@ -34,7 +34,7 @@ $(function() {
    //如果是图文会诊
    if (data.orderFormBean.orderTypes == '0') {
        $('.schedule').hide();
-       $('.schedule_modules ').hide();
+       $('.schedule_modules').hide();
          $('.entrance').hide();
 
    } else {

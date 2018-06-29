@@ -499,38 +499,47 @@ $(function () {
           $('.schedule_modules ').show();
           $('.entrance').show();
       }
-
+  var startMinute = 0; // 开始总分钟数
+  var endMinute = 0; // 结束总分钟数
+  var startHour = 0; // 开始小时数
+  var endHour = 0; // 结束小时数
+  var _html = '';
+  for (var i = 0; i < 96; i++) {
+      startMinute = i * 15;
+      endMinute = (i + 1) * 15;
+      startHour = parseInt(startMinute / 60);
+      endHour = parseInt(endMinute / 60);
+      var startM = startMinute %= 60; // 计算后的开始分钟数
+      var endM = endMinute %= 60; // 计算后的开始分钟数
+      if (endHour == 24) {
+          _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+      } else {
+          _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+      }
+  }
+  $('.rightContent').html(_html);
 
     // 修改排期
     $('.schedulingBtn').click(function () {
-        var $ = layui.jquery;
+        
+        var _$ = layui.jquery;
         layer.open({
             type: 1,
-            content: $('.selectTimeContainer'),
+            content: _$('.selectTimeContainer'),
             title: '',
-            area: ['1060px', '680px'],
+            area: ['1060px', '630px'],
             closeBtn: 0,
             skin: 'noBackground',
-        })
-        var startMinute = 0; // 开始总分钟数
-        var endMinute = 0; // 结束总分钟数
-        var startHour = 0; // 开始小时数
-        var endHour = 0; // 结束小时数
-        var _html = '';
-        for (var i = 0; i < 96; i++) {
-            startMinute = i * 15;
-            endMinute = (i + 1) * 15;
-            startHour = parseInt(startMinute / 60);
-            endHour = parseInt(endMinute / 60);
-            var startM = startMinute %= 60; // 计算后的开始分钟数
-            var endM = endMinute %= 60; // 计算后的开始分钟数
-            if (endHour == 24) {
-                _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            } else {
-                _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            }
-        }
-        $('.rightContent').html(_html)
+        });
+          for (var i = 0; i < dateTempList.length; i++) {
+              if (dateStr == dateTempList[i].date) {
+                  for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                      $('#timeUl > li').eq(j).addClass('active');
+                  }
+              }
+          }
+          
+      
     })
 
 
@@ -640,6 +649,7 @@ $(function () {
     })
 
     $('.yesBtn').click(function () {
+
         console.log(dateTempList)
         var dateList = []; // 选择的时间数据
         for (var i = 0; i < dateTempList.length; i++) {
@@ -655,6 +665,7 @@ $(function () {
                 });
             }
         }
+        console.log(dateList)
         $.ajax({
             type: 'POST',
             url: IP + 'order/updateSchedulingTime',

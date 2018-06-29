@@ -642,7 +642,7 @@ $(function() {
                 area: ['500px', '200px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 content: _$('.submitBox'),
             });
         } else {
@@ -812,24 +812,12 @@ $(function() {
                 }
             }
             // var dateTempFlag = true;
-            if (dateTempList.length == 0) {
-                dateTempList.push({
-                    "date": dateStr,
-                    "startIndex": startIndex,
-                    "endIndex": endIndex,
-                });
-            } else {
-                for (var i = 0; i < dateTempList.length; i++) {
-                    if (dateTempList[i].date == dateStr) {
-                        dateTempList.splice(i, 1);
-                    }
-                }
-                dateTempList.push({
-                    "date": dateStr,
-                    "startIndex": startIndex,
-                    "endIndex": endIndex,
-                });
-            }
+           dateTempList = [];
+           dateTempList.push({
+               "date": dateStr,
+               "startIndex": startIndex,
+               "endIndex": endIndex,
+           });
         }
     });
     // 关闭事件

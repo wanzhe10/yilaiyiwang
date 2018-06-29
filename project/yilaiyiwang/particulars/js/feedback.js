@@ -540,7 +540,7 @@ $('.bigImgBox').on('mouseleave', function () {
                       area: ['300px', '80px'],
                       closeBtn: false,
                       shade: [0.1, '#000000'],
-                      shadeClose: true,
+                      shadeClose: false,
                       skin: 'layui-layer-nobg', //没有背景色
                       time: 2000,
                       content: _$('.alertBox'),
@@ -572,7 +572,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 area: ['300px', '80px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 skin: 'layui-layer-nobg', //没有背景色
                                 time: 2000,
                                 content: _$('.alertBox'),
@@ -592,7 +592,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 area: ['300px', '80px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 skin: 'layui-layer-nobg', //没有背景色
                                 time: 2000,
                                 content: _$('.alertBox'),
@@ -606,7 +606,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 area: ['300px', '80px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 skin: 'layui-layer-nobg', //没有背景色
                                 time: 2000,
                                 content: _$('.alertBox'),
@@ -623,7 +623,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 closeBtn: 0,
                                 area: '340px',
                                 skin: 'layui-layer-nobg', //没有背景色
-                                // shadeClose: true,
+                                // shadeClose: false,
                                 shade: 0,
                                 time: 2000,
                                 content: _$('.succeed')
@@ -666,7 +666,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 area: ['300px', '80px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 skin: 'layui-layer-nobg', //没有背景色
                                 time: 2000,
                                 content: _$('.alertBox'),
@@ -690,7 +690,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                  area: ['300px', '80px'],
                                  closeBtn: false,
                                  shade: [0.1, '#000000'],
-                                 shadeClose: true,
+                                 shadeClose: false,
                                  skin: 'layui-layer-nobg', //没有背景色
                                  time: 2000,
                                  content: _$('.alertBox'),
@@ -704,7 +704,7 @@ $('.bigImgBox').on('mouseleave', function () {
                                 area: ['300px', '80px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 skin: 'layui-layer-nobg', //没有背景色
                                 time: 2000,
                                 content: _$('.alertBox'),

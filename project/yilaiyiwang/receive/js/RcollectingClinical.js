@@ -158,15 +158,7 @@ $(function() {
             'width': '145px',
             'position': 'fixed',
         })
-        // if ($(document).scrollTop() >= $(document).height() - $(window).height() - $('.footer').height()) {
-        //     $('.twoLevelUl').css({
-        //         'height': $(window).height() - 300 - $('.oneLevelUl .oneLevelItem').length * $('.oneLevelName').height(),
-        //     })
-        // } else {
-        //     $('.twoLevelUl').css({
-        //         'height': $(window).height() - 230 - $('.oneLevelUl .oneLevelItem').length * $('.oneLevelName').height(),
-        //     })
-        // }
+       
     });
 
     function scrollTo(x) {
@@ -677,7 +669,7 @@ $(function() {
                 area: ['500px', '200px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 content: _$('.submitBox'),
             });
         } else {
@@ -686,7 +678,7 @@ $(function() {
                 type: 1,
                 content: _$('.selectTimeContainer'),
                 title: '',
-                area: ['1060px', '680px'],
+                area: ['1060px', '630px'],
                 closeBtn: 0,
                 skin: 'noBackground',
             })
@@ -708,7 +700,7 @@ $(function() {
                     _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
                 }
             }
-            $('.rightContent').html(_html)
+            $('.rightContent').html(_html);
         }
 
     })
@@ -850,24 +842,12 @@ $(function() {
              }
          }
          // var dateTempFlag = true;
-         if (dateTempList.length == 0) {
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         } else {
-             for (var i = 0; i < dateTempList.length; i++) {
-                 if (dateTempList[i].date == dateStr) {
-                     dateTempList.splice(i, 1);
-                 }
-             }
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         }
+           dateTempList = [];
+           dateTempList.push({
+               "date": dateStr,
+               "startIndex": startIndex,
+               "endIndex": endIndex,
+           });
      }
  });
     // 关闭事件

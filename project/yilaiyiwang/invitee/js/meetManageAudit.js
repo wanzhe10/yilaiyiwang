@@ -444,7 +444,25 @@ $('.bigImgBox').on('mouseleave', function () {
        $('.schedule_modules').toggle(500);
    });
 
-
+ var startMinute = 0; // 开始总分钟数
+ var endMinute = 0; // 结束总分钟数
+ var startHour = 0; // 开始小时数
+ var endHour = 0; // 结束小时数
+ var _html = '';
+ for (var i = 0; i < 96; i++) {
+     startMinute = i * 15;
+     endMinute = (i + 1) * 15;
+     startHour = parseInt(startMinute / 60);
+     endHour = parseInt(endMinute / 60);
+     var startM = startMinute %= 60; // 计算后的开始分钟数
+     var endM = endMinute %= 60; // 计算后的开始分钟数
+     if (endHour == 24) {
+         _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+     } else {
+         _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+     }
+ }
+ $('.rightContent').html(_html);
     // 修改排期
     $('.schedulingBtn').click(function() {
         var $ = layui.jquery;
@@ -452,29 +470,18 @@ $('.bigImgBox').on('mouseleave', function () {
             type: 1,
             content: $('.selectTimeContainer'),
             title: '',
-            area: ['1060px', '680px'],
+            area: ['1060px', '630px'],
             closeBtn: 0,
             skin: 'noBackground',
         });
-        var startMinute = 0; // 开始总分钟数
-        var endMinute = 0; // 结束总分钟数
-        var startHour = 0; // 开始小时数
-        var endHour = 0; // 结束小时数
-        var _html = '';
-        for (var i = 0; i < 96; i++) {
-            startMinute = i * 15;
-            endMinute = (i + 1) * 15;
-            startHour = parseInt(startMinute / 60);
-            endHour = parseInt(endMinute / 60);
-            var startM = startMinute %= 60; // 计算后的开始分钟数
-            var endM = endMinute %= 60; // 计算后的开始分钟数
-            if (endHour == 24) {
-                _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            } else {
-                _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            }
-        }
-        $('.rightContent').html(_html)
+          for (var i = 0; i < dateTempList.length; i++) {
+              if (dateStr == dateTempList[i].date) {
+                  for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                      $('#timeUl > li').eq(j).addClass('active');
+                  }
+              }
+          }
+       
     });
 
 
@@ -556,24 +563,12 @@ $('.bigImgBox').on('mouseleave', function () {
              }
          }
          // var dateTempFlag = true;
-         if (dateTempList.length == 0) {
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         } else {
-             for (var i = 0; i < dateTempList.length; i++) {
-                 if (dateTempList[i].date == dateStr) {
-                     dateTempList.splice(i, 1);
-                 }
-             }
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         }
+         dateTempList = [];
+         dateTempList.push({
+             "date": dateStr,
+             "startIndex": startIndex,
+             "endIndex": endIndex,
+         });
      }
  });
     // 关闭事件
@@ -776,9 +771,12 @@ $('.bigImgBox').on('mouseleave', function () {
     // /* 审核发布按钮事件  提示信息(200:审核成功,202:拒收成功,502:请求参数有误,555:订单状态发生改变)
     // 只有一个收件人--接收按钮
     $('.audit').click(function() {
+
     if (recipientsArr.length <= 0) {
         layer.msg("请先分配主会诊医生",{time: 3000});
     
+    } else if ($('.schedule_modules >p').length > 1) {
+         layer.msg("请选定会诊时间",{time: 3000});
     }else{
           var _$ = layui.jquery;
         layer.open({
@@ -787,7 +785,7 @@ $('.bigImgBox').on('mouseleave', function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.Receive'),
         });
     }
@@ -801,7 +799,7 @@ $('.bigImgBox').on('mouseleave', function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.MDTBox'),
         });
     });

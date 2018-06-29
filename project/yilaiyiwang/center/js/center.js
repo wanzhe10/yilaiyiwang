@@ -120,8 +120,10 @@ $(function() {
             success: function(data) {
                 // console.log(data)
                 if (data.status == 200) {
-                    layer.msg("修改密码成功");
-                    // windows.location = '/yilaiyiwang/login/login.html'
+                    layer.msg("修改密码成功",{time:3000});
+                    setTimeout(function() {
+                location.href = '/yilaiyiwang/login/login.html';
+                    }, 3000);
 
                 } else if (data.status == 212) {
                     layer.msg("原密码有误");
@@ -280,7 +282,7 @@ $(function() {
                                closeBtn: 0,
                                area: '340px',
                                skin: 'layui-layer-nobg', //没有背景色
-                               // shadeClose: true,
+                               // shadeClose: false,
                                shade: 0,
                                time: 2000,
                                content: _$('.storage')
@@ -305,7 +307,7 @@ $(function() {
                                   closeBtn: 0,
                                   area: '340px',
                                   skin: 'layui-layer-nobg', //没有背景色
-                                  // shadeClose: true,
+                                  // shadeClose: false,
                                   shade: 0,
                                   time: 2000,
                                   content: _$('.storage')

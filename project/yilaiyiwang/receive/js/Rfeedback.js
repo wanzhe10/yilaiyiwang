@@ -37,7 +37,7 @@ $(function() {
             closeBtn: 0,
             area: '340px',
             skin: 'layui-layer-nobg', //没有背景色
-            // shadeClose: true,
+            // shadeClose: false,
             shade: 0,
             time: 3000,
             content: $('.failed')

@@ -480,19 +480,7 @@ $(function() {
   })
   // 图片缩放 拖拽 结束
 
-
-    // 修改排期
-    $('.schedulingBtn').click(function() {
-        var $ = layui.jquery;
-        layer.open({
-            type: 1,
-            content: $('.selectTimeContainer'),
-            title: '',
-            area: ['1060px', '680px'],
-            closeBtn: 0,
-            skin: 'noBackground',
-        });
-        var startMinute = 0; // 开始总分钟数
+ var startMinute = 0; // 开始总分钟数
         var endMinute = 0; // 结束总分钟数
         var startHour = 0; // 开始小时数
         var endHour = 0; // 结束小时数
@@ -510,7 +498,26 @@ $(function() {
                 _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
             }
         }
-        $('.rightContent').html(_html)
+        $('.rightContent').html(_html);
+    // 修改排期
+    $('.schedulingBtn').click(function() {
+        var $ = layui.jquery;
+        layer.open({
+            type: 1,
+            content: $('.selectTimeContainer'),
+            title: '',
+            area: ['1060px', '680px'],
+            closeBtn: 0,
+            skin: 'noBackground',
+        });
+          for (var i = 0; i < dateTempList.length; i++) {
+              if (dateStr == dateTempList[i].date) {
+                  for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                      $('#timeUl > li').eq(j).addClass('active');
+                  }
+              }
+          }
+       
     });
     var dateTempList = []; // 收集的时间段
     for (var i = 0; i < data.orderDateList.length; i++) {

@@ -155,7 +155,7 @@ $(function () {
                                 area: ['340px', '200px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 time: 2000,
                                 content: _$('.successBox'),
                             });
@@ -173,7 +173,7 @@ $(function () {
                                 area: ['340px', '200px'],
                                 closeBtn: false,
                                 shade: [0.1, '#000000'],
-                                shadeClose: true,
+                                shadeClose: false,
                                 time: 2000,
                                 content: _$('.loseBox'),
                             });
@@ -337,7 +337,7 @@ $(function () {
                                     area: ['340px', '200px'],
                                     closeBtn: false,
                                     shade: [0.1, '#000000'],
-                                    shadeClose: true,
+                                    shadeClose: false,
                                     time: 2000,
                                     content: _$('.successBox'),
                                 });
@@ -407,7 +407,7 @@ $(function () {
                                             area: ['340px', '200px'],
                                             closeBtn: false,
                                             shade: [0.1, '#000000'],
-                                            shadeClose: true,
+                                            shadeClose: false,
                                             time: 2000,
                                             content: _$('.loseBox'),
                                         });
@@ -821,7 +821,7 @@ $(function () {
                             area: ['340px', '200px'],
                             closeBtn: false,
                             shade: [0.1, '#000000'],
-                            shadeClose: true,
+                            shadeClose: false,
                             time: 2000,
                             content: _$('.successBox'),
                         });
@@ -839,7 +839,7 @@ $(function () {
                             area: ['340px', '200px'],
                             closeBtn: false,
                             shade: [0.1, '#000000'],
-                            shadeClose: true,
+                            shadeClose: false,
                             time: 2000,
                             content: _$('.loseBox'),
                         });
@@ -882,7 +882,7 @@ $(function () {
                             area: ['340px', '200px'],
                             closeBtn: false,
                             shade: [0.1, '#000000'],
-                            shadeClose: true,
+                            shadeClose: false,
                             time: 2000,
                             content: _$('.successBox'),
                         });
@@ -900,7 +900,7 @@ $(function () {
                             area: ['340px', '200px'],
                             closeBtn: false,
                             shade: [0.1, '#000000'],
-                            shadeClose: true,
+                            shadeClose: false,
                             time: 2000,
                             content: _$('.loseBox'),
                         });
@@ -928,7 +928,7 @@ $(function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.replacement'),
         });
     });
@@ -960,7 +960,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         //  time: 2000,
                         content: _$('.successBox'),
                     });
@@ -978,7 +978,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         //  time: 2000,
                         content: _$('.loseBox'),
                     });
@@ -1052,7 +1052,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.successBox'),
                     });
@@ -1070,7 +1070,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.loseBox'),
                     });
@@ -1094,7 +1094,7 @@ $(function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.approved'),
         });
 
@@ -1128,7 +1128,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.successBox'),
                     });
@@ -1159,7 +1159,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.loseBox'),
                     });
@@ -1184,7 +1184,7 @@ $(function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.decline'),
         });
 
@@ -1221,7 +1221,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 3000,
                         content: _$('.successBox'),
                     });
@@ -1246,7 +1246,7 @@ $(function () {
                         area: ['340px', '200px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.loseBox'),
                     });
@@ -1348,7 +1348,7 @@ $(function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.deleteBox'),
         });
     })
@@ -1423,7 +1423,7 @@ $(function () {
                 area: ['500px', '200px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 content: _$('.submitBox'),
             });
         }

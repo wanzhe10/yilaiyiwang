@@ -482,7 +482,7 @@ $('.bigImgBox').on('mouseleave', function () {
             type: 1,
             content: $('.selectTimeContainer'),
             title: '',
-            area: ['1060px', '680px'],
+            area: ['1060px', '630px'],
             closeBtn: 0,
             skin: 'noBackground',
         });
@@ -579,24 +579,30 @@ $('.bigImgBox').on('mouseleave', function () {
              }
          }
          // var dateTempFlag = true;
-         if (dateTempList.length == 0) {
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         } else {
-             for (var i = 0; i < dateTempList.length; i++) {
-                 if (dateTempList[i].date == dateStr) {
-                     dateTempList.splice(i, 1);
-                 }
-             }
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         }
+        dateTempList = [];
+        dateTempList.push({
+            "date": dateStr,
+            "startIndex": startIndex,
+            "endIndex": endIndex,
+        });
+        //  if (dateTempList.length == 0) {
+        //      dateTempList.push({
+        //          "date": dateStr,
+        //          "startIndex": startIndex,
+        //          "endIndex": endIndex,
+        //      });
+        //  } else {
+        //      for (var i = 0; i < dateTempList.length; i++) {
+        //          if (dateTempList[i].date == dateStr) {
+        //              dateTempList.splice(i, 1);
+        //          }
+        //      }
+        //      dateTempList.push({
+        //          "date": dateStr,
+        //          "startIndex": startIndex,
+        //          "endIndex": endIndex,
+        //      });
+        //  }
      }
  });
     // 关闭事件
@@ -787,17 +793,22 @@ $('.bigImgBox').on('mouseleave', function () {
     });
     // /* 审核发布按钮事件  提示信息(200:审核成功,202:拒收成功,502:请求参数有误,555:订单状态发生改变)
     $('.examineBtn').click(function() {
-        var _$ = layui.jquery;
-        layer.open({
-            type: 1,
-            title: '',
-            area: ['500px', '200px'],
-            closeBtn: false,
-            shade: [0.1, '#000000'],
-            shadeClose: true,
-            content: _$('.submitBox'),
-        });
+      if ($('.schedule_modules >p').length = 1) {
+              var _$ = layui.jquery;
+              layer.open({
+                  type: 1,
+                  title: '',
+                  area: ['500px', '200px'],
+                  closeBtn: false,
+                  shade: [0.1, '#000000'],
+                  shadeClose: false,
+                  content: _$('.submitBox'),
+              });
+      }else{
+         layer.msg('请选定会诊时间',{time:3000});
+      }
     });
+  
     $('.submitBox .noBtn').click(function() {
         layer.closeAll();
         $('.submitBox').hide();

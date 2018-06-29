@@ -25,7 +25,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -40,7 +40,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -59,7 +59,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -74,7 +74,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -92,7 +92,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -109,7 +109,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -126,7 +126,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -144,7 +144,7 @@ $(function () {
                 area: ['200px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 //  skin: 'layui-layer-nobg', //没有背景色
                 time: 2000,
                 content: _$('.verify'),
@@ -544,7 +544,7 @@ $(function () {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.promptText'),
             });
@@ -789,7 +789,7 @@ $(function () {
             area: ['1067px', '600px'],
             closeBtn: false,
             shade: [0.7, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: $('.bigImgContainer'),
         });
 }
@@ -928,7 +928,7 @@ $(function () {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: $('.fillOut'),
             });
@@ -958,7 +958,7 @@ $(function () {
                         closeBtn: 0,
                         area: '340px',
                         skin: 'layui-layer-nobg', //没有背景色
-                        // shadeClose: true,
+                        // shadeClose: false,
                         shade: 0,
                         time: 2000,
                         content: $('.storage')
@@ -991,7 +991,7 @@ $(function () {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.incomplete'),
             });
@@ -1007,7 +1007,7 @@ $(function () {
                 area: ['500px', '200px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 content: _$('.imgContent'),
             });
             $('.imgContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');
@@ -1022,7 +1022,7 @@ $(function () {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: $('.incomplete'),
             });
@@ -1246,7 +1246,7 @@ $(function () {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.videoContent'),
         });
         $('.videoContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');

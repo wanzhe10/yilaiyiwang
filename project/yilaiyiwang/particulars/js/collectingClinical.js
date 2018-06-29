@@ -226,7 +226,7 @@ $(function() {
       var orderDateList = data.orderDateList;
       var _dateHtml = '';
       for (var i = 0; i < orderDateList.length; i++) {
-          if (orderDateList[i].types == 1) {
+          if (orderDateList[i].types == 0) {
               _dateHtml += ' <p>\
           <span class="startDate">从&nbsp;&nbsp;' + orderDateList[i].startDate + '</span> 到&nbsp;&nbsp;\
         <span class="endDate">' + orderDateList[i].endDate + '</span>\

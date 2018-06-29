@@ -532,7 +532,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.operateBox'),
             });
@@ -1007,7 +1007,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: $('.fillOut'),
             });
@@ -1037,7 +1037,7 @@ $(function() {
                         closeBtn: 0,
                         area: '340px',
                         skin: 'layui-layer-nobg', //没有背景色
-                        // shadeClose: true,
+                        // shadeClose: false,
                         shade: 0,
                         time: 2000,
                         content: $('.storage')
@@ -1070,7 +1070,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.incomplete'),
             });
@@ -1087,7 +1087,7 @@ $(function() {
                  area: ['300px', '80px'],
                  closeBtn: false,
                  shade: [0.1, '#000000'],
-                 shadeClose: true,
+                 shadeClose: false,
                  time: 2000,
                  content: _$('.modifier'),
              });
@@ -1105,7 +1105,7 @@ $(function() {
                 area: ['500px', '200px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 content: _$('.imgContent'),
             });
             $('.imgContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');
@@ -1120,7 +1120,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: $('.incomplete'),
             });
@@ -1137,7 +1137,7 @@ $(function() {
                       area: ['300px', '80px'],
                       closeBtn: false,
                       shade: [0.1, '#000000'],
-                      shadeClose: true,
+                      shadeClose: false,
                       time: 2000,
                       content: _$('.modifier'),
                   });
@@ -1317,8 +1317,6 @@ $(function() {
         });
     });
     // 分钟选择事件、
-
-
     $('#timeUl').delegate('li', 'click', function() {
         if (flag) {
             $(this).addClass('active').siblings('li').removeClass('active');
@@ -1373,7 +1371,7 @@ $(function() {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.videoContent'),
         });
         $('.videoContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');

@@ -301,7 +301,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.promptText'),
             });

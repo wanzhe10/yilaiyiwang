@@ -435,7 +435,25 @@ $(function() {
         $('.schedule_modules').toggle(500);
     });
 
-
+var startMinute = 0; // 开始总分钟数
+var endMinute = 0; // 结束总分钟数
+var startHour = 0; // 开始小时数
+var endHour = 0; // 结束小时数
+var _html = '';
+for (var i = 0; i < 96; i++) {
+    startMinute = i * 15;
+    endMinute = (i + 1) * 15;
+    startHour = parseInt(startMinute / 60);
+    endHour = parseInt(endMinute / 60);
+    var startM = startMinute %= 60; // 计算后的开始分钟数
+    var endM = endMinute %= 60; // 计算后的开始分钟数
+    if (endHour == 24) {
+        _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+    } else {
+        _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
+    }
+}
+$('.rightContent').html(_html);
     // 修改排期
     $('.schedulingBtn').click(function() {
         var $ = layui.jquery;
@@ -447,25 +465,14 @@ $(function() {
             closeBtn: 0,
             skin: 'noBackground',
         });
-        var startMinute = 0; // 开始总分钟数
-        var endMinute = 0; // 结束总分钟数
-        var startHour = 0; // 开始小时数
-        var endHour = 0; // 结束小时数
-        var _html = '';
-        for (var i = 0; i < 96; i++) {
-            startMinute = i * 15;
-            endMinute = (i + 1) * 15;
-            startHour = parseInt(startMinute / 60);
-            endHour = parseInt(endMinute / 60);
-            var startM = startMinute %= 60; // 计算后的开始分钟数
-            var endM = endMinute %= 60; // 计算后的开始分钟数
-            if (endHour == 24) {
-                _html += '<li endDate="23:59" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            } else {
-                _html += '<li endDate="' + double(endHour) + ':' + double(endM) + '" index="' + i + '">' + double(startHour) + ':' + double(startM) + '</li>'
-            }
-        }
-        $('.rightContent').html(_html)
+         for (var i = 0; i < dateTempList.length; i++) {
+             if (dateStr == dateTempList[i].date) {
+                 for (var j = dateTempList[i].startIndex; j <= dateTempList[i].endIndex; j++) {
+                     $('#timeUl > li').eq(j).addClass('active');
+                 }
+             }
+         }
+        
     });
 
 
@@ -547,24 +554,12 @@ $(function() {
              }
          }
          // var dateTempFlag = true;
-         if (dateTempList.length == 0) {
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         } else {
-             for (var i = 0; i < dateTempList.length; i++) {
-                 if (dateTempList[i].date == dateStr) {
-                     dateTempList.splice(i, 1);
-                 }
-             }
-             dateTempList.push({
-                 "date": dateStr,
-                 "startIndex": startIndex,
-                 "endIndex": endIndex,
-             });
-         }
+          dateTempList = [];
+          dateTempList.push({
+              "date": dateStr,
+              "startIndex": startIndex,
+              "endIndex": endIndex,
+          });
      }
  });
     // 关闭事件
@@ -771,7 +766,7 @@ $(function() {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             content: _$('.submitBox'),
         });
     });

@@ -688,7 +688,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.operateBox'),
             });
@@ -1232,7 +1232,7 @@ $(function() {
                         area: ['300px', '80px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         skin: 'layui-layer-nobg', //没有背景色
                         time: 2000,
                         content: _$('.alertBox'),
@@ -1264,7 +1264,7 @@ $(function() {
                    area: ['300px', '80px'],
                    closeBtn: false,
                    shade: [0.1, '#000000'],
-                   shadeClose: true,
+                   shadeClose: false,
                    time: 2000,
                    content: _$('.incomplete'),
                });
@@ -1280,7 +1280,7 @@ $(function() {
                    area: ['300px', '80px'],
                    closeBtn: false,
                    shade: [0.1, '#000000'],
-                   shadeClose: true,
+                   shadeClose: false,
                    time: 2000,
                    content: _$('.modifier'),
                });
@@ -1298,7 +1298,7 @@ $(function() {
                    area: ['500px', '200px'],
                    closeBtn: false,
                    shade: [0.1, '#000000'],
-                   shadeClose: true,
+                   shadeClose: false,
                    content: _$('.imgContent'),
                });
                $('.imgContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');
@@ -1306,6 +1306,7 @@ $(function() {
        });
        $('.imagebtnBox .noBtn').click(function () {
            layer.closeAll();
+           $('.imgContent').hide();
        });
     //    图文会诊确认弹窗的确定按钮
     $('.imagebtnBox .yesBtn').click(function () {
@@ -1386,7 +1387,7 @@ $(function() {
                         area: ['300px', '80px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.incomplete'),
                     });
@@ -1410,7 +1411,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.incomplete'),
             });
@@ -1427,7 +1428,7 @@ $(function() {
                 area: ['300px', '80px'],
                 closeBtn: false,
                 shade: [0.1, '#000000'],
-                shadeClose: true,
+                shadeClose: false,
                 time: 2000,
                 content: _$('.modifier'),
             });
@@ -1549,6 +1550,7 @@ $(function() {
     $('.closeBtnTime').click(function() {
         layer.closeAll();
         $('.selectTimeContainer').hide();
+        dateTempList = [];
     });
     // 确定事件 == 发送视频会诊
      $('.selectTimeContainer .selectTimeContent .btnBox .yesBtn').click(function () {
@@ -1559,7 +1561,7 @@ $(function() {
              area: ['500px', '200px'],
              closeBtn: false,
              shade: [0.1, '#000000'],
-             shadeClose: true,
+             shadeClose: false,
              content: _$('.videoContent'),
          });
          $('.videoContent .submitText').html('您的病历将发送到' + hospitalName + '，请确认');
@@ -1567,6 +1569,8 @@ $(function() {
 
      $('.videoContent .noBtn').click(function () {
          layer.closeAll();
+         $('.videoContent').hide();
+         $('.selectTimeContainer ').hide();
      });
     //  视频会诊确认弹窗确定按钮事件
     $('.videoContent .yesBtn').click(function () {
@@ -1666,7 +1670,7 @@ $(function() {
                         area: ['300px', '80px'],
                         closeBtn: false,
                         shade: [0.1, '#000000'],
-                        shadeClose: true,
+                        shadeClose: false,
                         time: 2000,
                         content: _$('.incomplete'),
                     });
@@ -1689,16 +1693,16 @@ $(function() {
             area: ['500px', '200px'],
             closeBtn: false,
             shade: [0.1, '#000000'],
-            shadeClose: true,
+            shadeClose: false,
             scrollbar: false,
             content: _$('.deleteDraft'),
         });
 
 
     });
-
     $('.deleteBox .noBtn').click(function () {
-        layer.closeAll()
+        layer.closeAll();
+        $('.deleteDraft').hide();
     });
     $('.deleteBox .yesBtn').click(function () {
         $.ajax({
