@@ -443,13 +443,14 @@ $(function() {
     var recipientsArr = data.orderDoctorsList;
   
     var _html = '';
+if (recipientsArr.length == 0) {
+    $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+} else {
     for (var i = 0; i < recipientsArr.length; i++) {
         _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-         if (recipientsArr[i].id == localStorage.getItem('userId')) {
-             doctorInfo = recipientsArr[i];
-         }
     }
-    $('.addresserInfo').html(_html)
+    $('.addresserInfo').html(_html);
+}
     console.log(doctorInfo)
 
     /* 循环时间轴 orderStatesList*/

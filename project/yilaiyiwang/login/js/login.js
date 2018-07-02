@@ -59,6 +59,7 @@ $(function () {
                                  console.log(data);
                                  if (data.status == 200) {
                                   localStorage.setItem('userId', data.userId);
+                                  localStorage.setItem('username', $('#iphoneInputIn').val());
                                   localStorage.setItem('name', data.name);
                                   localStorage.setItem('occupationName', data.occupationName);
                                   localStorage.setItem('deptName', data.deptName);

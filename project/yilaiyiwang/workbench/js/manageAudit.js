@@ -419,19 +419,14 @@ $(function () {
     $('.recipientsInfo').html(' <' + data.orderFormBean.doctorName + '/' + data.orderFormBean.doctorTitleName + '/' + data.orderFormBean.doctorDeptName + '/' + data.orderFormBean.doctorHospitalName + '>')
     //   收件人信息
     var recipientsArr = data.orderDoctorsList;
-    if (recipientsArr.length == 0) {
-        $('.addresserInfo').html('无');
-    } else {
-        var _html = '';
-        for (var i = 0; i < recipientsArr.length; i++) {
-            if (recipientsArr[i].firstDoctor == 1) {
-                _html = '主会诊人：<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;' + _html;
-            } else {
-                _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-            }
-        }
-        $('.addresserInfo').html(_html)
-    }
+  if (recipientsArr.length == 0) {
+      $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+  } else {
+      for (var i = 0; i < recipientsArr.length; i++) {
+          _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+      }
+      $('.addresserInfo').html(_html)
+  }
 
     /* 诊费 */
     var _fees = '';

@@ -27,6 +27,7 @@ $(function() {
             success: function(data) {
                 console.log(data)
                 if (data.status == 200) {
+                     $('.fruitless').hide();
                     count = data.pageSize * pageSize;
                     var tempArr = data.orderBeanList;
                     var _html = '';
@@ -68,7 +69,12 @@ $(function() {
                         _html += '</tr>'
                     }
                     $('.searchTbody').html(_html);
-                        $('.substance').html('"' + searchText + '"' + data.pageTotal + '条已结束病历')
+                
+                        $('.substance').html('"' + searchText + '"' + data.pageTotal + '条已结束病历');
+                } else if (data.status == 205) {
+                    // 未登录操作
+                    $('.substance').html('"'+$('.searchInput').val()+ '"' + '0条已结束病历');
+                    $('.fruitless').show();
                 } else if (data.status == 250) {
                     // 未登录操作
                     window.location = '/yilaiyiwang/login/login.html';

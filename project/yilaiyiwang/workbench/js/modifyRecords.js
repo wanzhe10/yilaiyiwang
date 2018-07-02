@@ -437,10 +437,16 @@ for (var i = 0; i < tempArr.length; i++) {
                    fb.append('sort', sort);
                    fb.append('caseTypeId', caseTypeId);
                    fb.append('caseTypeName', caseTypeName);
-                      if (!/[png|jpg |pdf|dcm]$/gi.test(name)) {
-                          layer.msg('请上传png/jpg/pdf/dcm类型的文件');
-                          return false;
-                      }
+                     var fileend = name.substring(name.lastIndexOf("."));
+                     console.log(fileend)
+                     if(!/[png|jpg |pdf|dcm]$/gi.test(name)) {
+                         layer.msg('请上传png/jpg/pdf/dcm类型的文件');
+                         return false;
+                     } else if (fileend != ".jpg" && fileend != ".png" && fileend != ".pdf" && fileend != ".dcm") {
+                         layer.msg('请上传png/jpg/pdf/dcm类型的文件');
+                         return false;
+                     }
+                      
                    $.ajax({
                        type: 'POST',
                        url: IP + 'order/addCaseFile',

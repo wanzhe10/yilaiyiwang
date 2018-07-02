@@ -470,17 +470,14 @@ $(function() {
     var recipientsArr = data.orderDoctorsList;
     var _html = '';
     var doctorId = '';
-    for (var i = 0; i < recipientsArr.length; i++) {
-        if (recipientsArr[i].firstDoctor == 1) {
-            _html = '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;' + _html;
-            doctorId = recipientsArr[i].id;
-          
-        } else {
-            _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-        }
-       
-    }
-    $('.addresserInfo').html(_html)
+   if (recipientsArr.length == 0) {
+       $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+   } else {
+       for (var i = 0; i < recipientsArr.length; i++) {
+           _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+       }
+       $('.addresserInfo').html(_html);
+   }
 
     var deptNumber = '';
     $.ajax({

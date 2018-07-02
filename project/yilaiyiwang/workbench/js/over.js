@@ -147,13 +147,18 @@ $(function() {
     var recipientsArr = data.orderDoctorsList;
     var _html = '';
     var _feedBack = '';
-    for (var i = 0; i < recipientsArr.length; i++) {
-        _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-        _feedBack += '<p>'+ recipientsArr[i].name +':<br />'+ recipientsArr[i].feedBack + '</p>'
-    }
-    $('.addresserInfo').html(_html);
-    // 会诊报告
-    $('.lecturer_modules').append(_feedBack);
+      if (recipientsArr.length == 0) {
+          $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+      } else {
+         for (var i = 0; i < recipientsArr.length; i++) {
+             _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+             _feedBack += '<p>' + recipientsArr[i].name + ':<br />' + recipientsArr[i].feedBack + '</p>'
+         }
+         $('.addresserInfo').html(_html);
+         // 会诊报告
+         $('.lecturer_modules').append(_feedBack);
+      }
+   
 
     var orderTypes = data.orderFormBean.orderTypes;
     $.ajax({

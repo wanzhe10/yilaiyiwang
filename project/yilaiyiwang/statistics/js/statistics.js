@@ -328,9 +328,52 @@ $(function() {
                 success: function(data) {
                     console.log(data)
                     if (data.status == 200) {
+                      
+                          var tempArr = data.statisticsBean;
+                          if (tempArr.length == 0) {
+                              layer.msg('统计结果无数据');
+                          } else {
+                              var headArr = [];
+                              var bodyArr = [];
+                              for (var i = 0; i < tempArr.length; i++) {
+                                  if (headArr.indexOf(tempArr[i].y) == -1) {
+                                      headArr.push(tempArr[i].y);
+                                  }
+                                  if (bodyArr.indexOf(tempArr[i].x) == -1) {
+                                      bodyArr.push(tempArr[i].x);
+                                  }
+                              }
+                              var headHtml = '<tr><th></th>';
+                              var bodyHtml = '';
+                              for (var i = 0; i < headArr.length; i++) {
+                                  headHtml += '<th>数量</th>';
+                              }
+                              for (var y = 0; y < bodyArr.length; y++) {
+                                  var itemArr = [];
+                                  for (var x = 0; x < tempArr.length; x++) {
+                                      if (tempArr[x].x == bodyArr[y]) {
+                                          itemArr.push(tempArr[x])
+                                      }
+                                  }
+                                  bodyHtml += '<tr>\
+                                                <td>' + bodyArr[y] + '</td>';
+                                  for (var z = 0; z < headArr.length; z++) {
+                                      if (z < itemArr.length) {
+                                          bodyHtml += '<td>' + itemArr[z].size + '</td>';
+
+                                      } else {
+                                          bodyHtml += '<td>0</td>';
+                                      }
+                                  }
+                                  bodyHtml += '</tr>';
+                              }
+                              $('.consultationHeadBox1').html(headHtml);
+                              $('.consultationBodyBox1').html(bodyHtml);
+                          }
                         $('.consultationTable').hide();
+                        $('.consultationTable1').hide();
                         $('.consultationChartBox').show();
-                        var tempArr = data.statisticsBean;
+                        // var tempArr = data.statisticsBean;
                         if (tempArr.length == 0) {
                             layer.msg('统计结果无数据')
                         } else {
@@ -527,7 +570,6 @@ $(function() {
                                         $('.referralHeadBox').html(headHtml);
                                         $('.referralBodyBox').html(bodyHtml);
                                     }
-
                                 } else if (data.status == 250) {
                                     // 未登录操作
                                     window.location = '/yilaiyiwang/login/login.html';
@@ -556,6 +598,51 @@ $(function() {
                 },
             })
         } else {
+                    var tempArr = data.statisticsBean;
+                    if (tempArr.length == 0) {
+                        layer.msg('统计内容无数据');
+                    } else {
+                        var headArr = [];
+                        var bodyArr = [];
+                        for (var i = 0; i < tempArr.length; i++) {
+                            if (headArr.indexOf(tempArr[i].y) == -1) {
+                                headArr.push(tempArr[i].y);
+                            }
+                            if (bodyArr.indexOf(tempArr[i].x) == -1) {
+                                bodyArr.push(tempArr[i].x);
+                            }
+                        }
+                        var headHtml = '<tr><th></th>';
+                        var bodyHtml = '';
+                        for (var i = 0; i < headArr.length; i++) {
+                            headHtml += '<th>数量</th>';
+                        }
+                        for (var y = 0; y < bodyArr.length; y++) {
+                            var itemArr = [];
+                            for (var x = 0; x < tempArr.length; x++) {
+                                if (tempArr[x].x == bodyArr[y]) {
+                                    itemArr.push(tempArr[x])
+                                }
+                            }
+                            bodyHtml += '<tr>\
+                                                <td>' + bodyArr[y] + '</td>';
+                            for (var z = 0; z < headArr.length; z++) {
+                                if (z < itemArr.length) {
+                                    bodyHtml += '<td>' + itemArr[z].size + '</td>';
+
+                                } else {
+                                    bodyHtml += '<td>0</td>';
+                                }
+                            }
+                            bodyHtml += '</tr>';
+                        }
+                        headHtml += '</tr>';
+                        $('.referralHeadBox2').html(headHtml);
+                        $('.referralBodyBox2').html(bodyHtml);
+                    }
+                      $('.consultationTable').hide();
+                      $('.consultationTable2').hide();
+                      $('.consultationChartBox').show();
             // 只有一个选项 的 情况
             var optionName = $('.referralOptionBox > a').eq(referralOptionArr[0]).html();
             $.ajax({
@@ -734,7 +821,47 @@ $(function() {
                             success: function(data) {
                                 console.log(data)
                                 if (data.status == 200) {
-                                    var tempArr = data.statisticsBean;
+                                     var tempArr = data.statisticsBean;
+                                     var headArr = [];
+                                     var bodyArr = [];
+                                     for (var i = 0; i < tempArr.length; i++) {
+                                         if (headArr.indexOf(tempArr[i].y) == -1) {
+                                             headArr.push(tempArr[i].y);
+                                         }
+                                         if (bodyArr.indexOf(tempArr[i].x) == -1) {
+                                             bodyArr.push(tempArr[i].x);
+                                         }
+                                     }
+                                     var headHtml = '<tr><th></th>';
+                                     var bodyHtml = '';
+                                     for (var i = 0; i < headArr.length; i++) {
+                                         headHtml += '<th>数量</th>';
+                                     }
+                                     for (var y = 0; y < bodyArr.length; y++) {
+                                         var itemArr = [];
+                                         for (var x = 0; x < tempArr.length; x++) {
+                                             if (tempArr[x].x == bodyArr[y]) {
+                                                 itemArr.push(tempArr[x])
+                                             }
+                                         }
+                                         bodyHtml += '<tr>\
+                                                <td>' + bodyArr[y] + '</td>';
+                                         for (var z = 0; z < headArr.length; z++) {
+                                             if (z < itemArr.length) {
+                                                 bodyHtml += '<td>' + itemArr[z].size + '</td>';
+
+                                             } else {
+                                                 bodyHtml += '<td>0</td>';
+                                             }
+                                         }
+                                         bodyHtml += '</tr>';
+                                     }
+                                     headHtml += '</tr>';
+                                     $('.referralTable3').hide();
+                                    //  $('.referralChartBox3').hide();
+                                     $('.referralHeadBox3').html(headHtml);
+                                     $('.referralBodyBox3').html(bodyHtml);
+                                    // var tempArr = data.statisticsBean;
                                     if (tempArr.length == 0) {
                                         layer.msg('统计内容无数据');
                                     } else {
@@ -792,9 +919,50 @@ $(function() {
                 },
                 crossDomain: true,
                 success: function(data) {
+
                     console.log(data)
                     if (data.status == 200) {
                         var tempArr = data.statisticsBean;
+                           var headArr = [];
+                           var bodyArr = [];
+                           for (var i = 0; i < tempArr.length; i++) {
+                               if (headArr.indexOf(tempArr[i].y) == -1) {
+                                   headArr.push(tempArr[i].y);
+                               }
+                               if (bodyArr.indexOf(tempArr[i].x) == -1) {
+                                   bodyArr.push(tempArr[i].x);
+                               }
+                           }
+                           var headHtml = '<tr><th></th>';
+                           var bodyHtml = '';
+                           for (var i = 0; i < headArr.length; i++) {
+                               headHtml += '<th>数量</th>';
+                           }
+                           for (var y = 0; y < bodyArr.length; y++) {
+                               var itemArr = [];
+                               for (var x = 0; x < tempArr.length; x++) {
+                                   if (tempArr[x].x == bodyArr[y]) {
+                                       itemArr.push(tempArr[x])
+                                   }
+                               }
+                               bodyHtml += '<tr>\
+                                                <td>' + bodyArr[y] + '</td>';
+                               for (var z = 0; z < headArr.length; z++) {
+                                   if (z < itemArr.length) {
+                                       bodyHtml += '<td>' + itemArr[z].size + '</td>';
+
+                                   } else {
+                                       bodyHtml += '<td>0</td>';
+                                   }
+                               }
+                               bodyHtml += '</tr>';
+                           }
+                           headHtml += '</tr>';
+                           //  $('.referralTable3').show();
+                           //  $('.referralChartBox3').hide();
+                           $('.referralHeadBox3').html(headHtml);
+                            $('.consultationTable3').hide();
+                          
                         if (tempArr.length == 0) {
                             layer.msg('统计内容无数据');
                         } else {
@@ -986,7 +1154,20 @@ $(function() {
 
             // 下载表格
       $('.tableBtn_one').click(function () {
-        if ($("#datatable_one").height() == '0') {
+          console.log($('this').parents('itemContent').find('consultationChartBox'))
+          if ($('this').parents('itemContent').find('consultationChartBox')) {
+              console.log(1)
+                 $("#datatable_one2").table2excel({
+                     exclude: ".noExl",
+                     // 导出的Excel文档的名称，（没看到作用）
+                     name: "Excel Document Name",
+                     // Excel文件的名称
+                     filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
+                     // fileext: ".xls",
+                     filename: "myExcelTable.xls"
+                 });
+          }else{
+            if ($("#datatable_one").height() == '0') {
            layer.msg('表格为空');
            return false;
         }else{
@@ -1001,10 +1182,26 @@ $(function() {
               filename: "myExcelTable.xls"
           });
         }
+          }
+      
       
       })
         // 转诊病例次数统计 下载按钮
        $('.tableBtn_two').click(function () {
+             console.log($('this').parents('itemContent').find('consultationChartBox'))
+             if ($('this').parents('itemContent').find('consultationChartBox')) {
+                 console.log(1)
+                 $("#datatable_two2").table2excel({
+                     exclude: ".noExl",
+                     // 导出的Excel文档的名称，（没看到作用）
+                     name: "Excel Document Name",
+                     // Excel文件的名称
+                     filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
+                     // fileext: ".xls",
+                     filename: "myExcelTable.xls"
+                 });
+             } else {
+              
            if ($("#datatable_two").height() == '0') {
                layer.msg('表格为空');
                return false;
@@ -1020,26 +1217,28 @@ $(function() {
                    filename: "myExcelTable.xls"
                });
            }
+        }
 
        })
-        // $('.tableBtn_one').click(function () {
-        //     if ($("#datatable_one").height() == '0') {
-        //         layer.msg('表格为空');
-        //         return false;
-        //     } else {
-        //         // console.log(1)
-        //         $("#datatable_one").table2excel({
-        //             exclude: ".noExl",
-        //             // 导出的Excel文档的名称，（没看到作用）
-        //             name: "Excel Document Name",
-        //             // Excel文件的名称
-        //             filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
-        //             // fileext: ".xls",
-        //             filename: "myExcelTable.xls"
-        //         });
-        //     }
+       /* 会诊高级统计下载表格按钮 */
+        $('.tableBtn_three').click(function () {
+            if ($("#datatable_three2").height() == '0') {
+                layer.msg('表格为空');
+                return false;
+            } else {
+                // console.log(1)
+                $("#datatable_three2").table2excel({
+                    exclude: ".noExl",
+                    // 导出的Excel文档的名称，（没看到作用）
+                    name: "Excel Document Name",
+                    // Excel文件的名称
+                    filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
+                    // fileext: ".xls",
+                    filename: "myExcelTable.xls"
+                });
+            }
 
-        // })
+        })
                 // 会诊费用统计下载表格按钮
          $('.tableBtn_four').click(function () {
              if ($("#datatable_four").height() == '0') {

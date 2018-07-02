@@ -51,78 +51,28 @@ $(function () {
 
 
 
-    var Hospital = [];
-    // 获取医院列表
-    $.ajax({
-        type: 'GET',
-        url: IP + 'hospital/findHospitalListNotManagerDept',
-        dataType: 'json',
-        success: function (data) {
-            console.log(data);
-            if (data.status == 200) {
-                Hospital = data.hospitalList;
-                hospitalId = Hospital[0].id;
-                // 获取默认科室列表
-                // getDeptList(hospitalId);
-                // 获取专家类型
-                // getSpecialistType(hospitalId);
-
-                var _html = '<option value="">请选择医院</option>';
-                for (var i = 0; i < Hospital.length; i++) {
-                    _html += '<option value="' + Hospital[i].id + '">' + Hospital[i].name + '</option>';
-                }
-                $('.quiz1').html(_html);
-            } else {}
-        },
-        error: function (err) {
-            console.log(err)
-        },
-
-    });
-    // 获取科室列表
-    var arr='';
-    function getDeptList(hospitalId) {
-        $.ajax({
-            // hospitalId 选择的医院ID
-            type: 'POST',
-            url: IP + 'hospitalDept/selectAllDeptList',
-            dataType: 'json',
-            async: false,
-            data: {
-                "hospitalId": hospitalId,
-            },
-            success: function (data) {
-                console.log(data);
-                if (data.status == 200) {
-                    var hospital_office = data.hospitalDeptsList;
-                 var _html = '<option value="" class="managerHospitalDeptId">请选择科室</option>';
-                    for (var i = 0; i < hospital_office.length; i++) {
-                        if (hospital_office[i].deptName == '远程医学中心') {
-                            managerHospitalDeptId = hospital_office[i].hospitalDeptId;
-                            console.log(managerHospitalDeptId)
-                            console.log($('.managerHospitalDeptId').attr('value', managerHospitalDeptId))
-                        }
-                        _html += '<option value="' + hospital_office[i].hospitalDeptId + '">' + hospital_office[i].deptName + '</option>';
-                    }
-                    $('.quiz3').html(_html);
-                    _html = '';
-                }
-            }
-        });
-    }
+  
 
     
-
-        
-
-    // 获取当前医院的科室列表
-    $('.quiz1').change(function () {
-        if ($(this).val() != '') {
-            hospitalId = $(this).val();
-            getDeptList($(this).val());
-            getSpecialistType($(this).val())
+    // 获取权限类型
+    $.ajax({
+        type: 'GET',
+        url: IP + '/roles/getEntityList',
+        dataType: 'json',
+        success: function (data) {
+            // console.log(data);
+            if (data.status == 200) {
+                var tempArr = [];
+                tempArr = data.rolesBeanList;
+                var _html = '<option value="">请选择权限类型</option>';
+                for (var i = 0; i < tempArr.length; i++) {
+                    _html += '<option value="' + tempArr[i].id + '">' + tempArr[i].remarks + '</option>'
+                }
+                $('.quiz2').html(_html);
+                _html = "";
+            }
         }
-    })
+    });
     // 获取职称列表
     $.ajax({
         type: 'GET',
@@ -141,6 +91,74 @@ $(function () {
             }
         }
     });
+
+    // 获取当前医院的科室列表
+    $('.quiz1').change(function () {
+        if ($(this).val() != '') {
+            hospitalId = $(this).val();
+            getDeptList($(this).val());
+            getSpecialistType($(this).val())
+        } else {
+            $('.quiz3').html('<option value="">请选择科室</option>');
+            $('.quiz4').html('<option value="">请选择专家类型</option>');
+        }
+    })
+    var Hospital = [];
+    // 获取医院列表
+    $.ajax({
+        type: 'GET',
+        url: IP + 'hospital/findHospitalListNotManagerDept',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            if (data.status == 200) {
+                Hospital = data.hospitalList;
+                hospitalId = Hospital[0].id;
+                var _html = '<option value="">请选择医院</option>';
+                for (var i = 0; i < Hospital.length; i++) {
+                    _html += '<option value="' + Hospital[i].id + '">' + Hospital[i].name + '</option>';
+                }
+                $('.quiz1').html(_html);
+            } else { }
+        },
+        error: function (err) {
+            console.log(err)
+        },
+
+    });
+
+    // 获取科室列表
+    // var arr='';
+    function getDeptList(hospitalId) {
+        $.ajax({
+            // hospitalId 选择的医院ID
+            type: 'POST',
+            url: IP + 'hospitalDept/selectAllDeptList',
+            dataType: 'json',
+            async: false,
+            data: {
+                "hospitalId": hospitalId,
+            },
+            success: function (data) {
+                console.log(data);
+                if (data.status == 200) {
+                    var hospital_office = data.hospitalDeptsList;
+                    var _html = '<option value="">请选择科室</option>';
+                    for (var i = 0; i < hospital_office.length; i++) {
+                        if (hospital_office[i].deptName == '远程医学中心') {
+                            managerHospitalDeptId = hospital_office[i].hospitalDeptId;
+                            // console.log(managerHospitalDeptId)
+                            // console.log($('.managerHospitalDeptId').attr('value', managerHospitalDeptId))
+                        }
+                        _html += '<option value="' + hospital_office[i].hospitalDeptId + '">' + hospital_office[i].deptName + '</option>';
+                    }
+                    $('.quiz3').html(_html);
+                    _html = '';
+                }
+            }
+        });
+    }
+
     // 获取专家类型列表 getSpecialistType
     function getSpecialistType(hospitalId) {
         $.ajax({
@@ -165,25 +183,7 @@ $(function () {
             }
         });
     }
-    // 获取权限类型
-    $.ajax({
-        type: 'GET',
-        url: IP + '/roles/getEntityList',
-        dataType: 'json',
-        success: function (data) {
-            // console.log(data);
-            if (data.status == 200) {
-                var tempArr = [];
-                tempArr = data.rolesBeanList;
-                var _html = '<option value="">请选择权限类型</option>';
-                for (var i = 0; i < tempArr.length; i++) {
-                    _html += '<option value="' + tempArr[i].id + '">' + tempArr[i].remarks + '</option>'
-                }
-                $('.quiz2').html(_html);
-                _html = "";
-            }
-        }
-    });
+
 
     // 专家类型切换 修改 诊费
     $('.quiz4').change(function () {

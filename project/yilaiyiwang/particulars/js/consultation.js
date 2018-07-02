@@ -459,10 +459,14 @@ $('.bigImgBox').on('mouseleave', function () {
     // //   收件人信息
     var recipientsArr = data.orderDoctorsList;
     var _html = '';
-    for (var i = 0; i < recipientsArr.length; i++) {
-        _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+    if (recipientsArr.length == 0) {
+        $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+    } else {
+        for (var i = 0; i < recipientsArr.length; i++) {
+            _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+        }
+        $('.addresserInfo').html(_html)
     }
-    $('.addresserInfo').html(_html)
 
 
     /* 循环时间轴 orderStatesList*/

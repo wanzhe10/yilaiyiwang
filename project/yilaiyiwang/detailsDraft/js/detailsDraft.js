@@ -788,7 +788,8 @@ $(function() {
         var uploadFile = $(this)[0].files; // 某一块添加时的原始数据
         var _html = '';
         var fileLength = 0;
-        var reader = new FileReader();
+        if (uploadFile.length > 0) {
+              var reader = new FileReader();
         reader.readAsDataURL(uploadFile[fileLength]);
        
         reader.onload = function(e) {
@@ -805,7 +806,15 @@ $(function() {
                     fb.append('sort', sort);
                     fb.append('caseTypeId', caseTypeId);
                     fb.append('caseTypeName', caseTypeName);
-                      if (!/[png|jpg |pdf|dcm]$/gi.test(name)) {
+                    console.log(type)
+                    console.log(name)
+                    console.log(sort)
+                      var fileend = name.substring(name.lastIndexOf("."));
+                      console.log(fileend)
+                       if (!/[png|jpg |pdf|dcm]$/gi.test(name)) {
+                          layer.msg('请上传png/jpg/pdf/dcm类型的文件');
+                          return false;
+                      }else if(fileend != ".jpg" && fileend != ".png" && fileend != ".pdf" && fileend != ".dcm") {
                           layer.msg('请上传png/jpg/pdf/dcm类型的文件');
                           return false;
                       }
@@ -870,6 +879,8 @@ $(function() {
                 }
             }
         };
+        }
+      
     });
 
     // 删除文件

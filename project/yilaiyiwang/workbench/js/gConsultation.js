@@ -125,11 +125,13 @@ $(function () {
     // //   收件人信息
   var recipientsArr = data.orderDoctorsList;
     var _html = '';
-    for (var i = 0; i < recipientsArr.length; i++) {
-        _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-    }
-    $('.addresserInfo').html(_html)
-
+ for (var i = 0; i < recipientsArr.length; i++) {
+     _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+     _feedBack += '<p>' + recipientsArr[i].name + ':<br />' + recipientsArr[i].feedBack + '</p>'
+ }
+ $('.addresserInfo').html(_html);
+ // 会诊报告
+ $('.lecturer_modules').append(_feedBack);
     /* 诊费 */
     var _fees = '';
     for (var i = 0; i < recipientsArr.length; i++) {

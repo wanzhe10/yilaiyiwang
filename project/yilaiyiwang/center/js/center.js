@@ -251,16 +251,19 @@ $(function() {
               $('.center_lastBtn').css('cursor', 'default');
         }
     });
-
-    $('.telephone, #textAdaotion').blur(function () {
-        if (oldTelephone != newTelephone || oldBeGoodAt != newBeGoodAt || $('.operate').length > 0) {
-            $('.center_lastBtn').addClass('active');
-                   $('.center_lastBtn').css('cursor', 'pointer');
-        }else {
-            $('.center_lastBtn').removeClass('active');
-            $('.center_lastBtn').css('cursor', 'default');
-        }
-    });
+    
+  $('.telephone, #textAdaotion').bind('input propertychange', function () {
+     if (oldTelephone != $('.telephone').val() || oldBeGoodAt != $('#textAdaotion').val() || $('.operate').length > 0) {
+         $('.center_lastBtn').addClass('active');
+         $('.center_lastBtn').css('cursor', 'pointer');
+     } else {
+         $('.center_lastBtn').removeClass('active');
+         $('.center_lastBtn').css('cursor', 'default');
+     }
+  });
+    // $('.telephone, #textAdaotion').blur(function () {
+       
+    // });
     /* 更改个人信息-电话和擅长 */
     $('.center_lastBtn').click(function() {
         // 修改信息判断
@@ -338,12 +341,18 @@ $(function() {
     });
 
    /*  //textarea 标签随着文本的高度实现自适应 */
-   $('.text-adaption').each(function () {
-       this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-   }).on('input', function () {
-       this.style.height = 'auto';
-       this.style.height = (this.scrollHeight) + 'px';
-   });
+  $('#textAdaotion').each(function () {
+      this.setAttribute('style', 'height:' + (this.scrollHeight + 40) + 'px;overflow-y:hidden;');
+  }).on('input propertychange', function () {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+       console.log(this.scrollHeight)
+  });
+    $('#textAdaotion').each(function () {
+        this.setAttribute('style', 'height:' + (this.scrollHeight + 40) + 'px;overflow-y:hidden;');
+    })
+
+
 
 
 });

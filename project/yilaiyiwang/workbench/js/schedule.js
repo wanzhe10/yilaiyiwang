@@ -366,10 +366,14 @@ $(function() {
     //   收件人信息
     var recipientsArr = data.orderDoctorsList;
     var _html = '';
-    for (var i = 0; i < recipientsArr.length; i++) {
-        _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
-    }
-    $('.addresserInfo').html(_html);
+  if (recipientsArr.length == 0) {
+      $('.addresserInfo').html("<" + data.orderFormBean.invitedHospitalName + ">")
+  } else {
+      for (var i = 0; i < recipientsArr.length; i++) {
+          _html += '<' + recipientsArr[i].name + '/' + recipientsArr[i].occupation + '/' + recipientsArr[i].deptName + '/' + recipientsArr[i].hospitalName + '>;'
+      }
+      $('.addresserInfo').html(_html)
+  }
 
     /* 诊费 */
     var _fees = '';
